@@ -229,3 +229,35 @@ a {
 .shadow-lg {
   box-shadow: var(--ntk-shadow-lg);
 }
+
+/* ============================================
+ * Float Animations - Subtle up/down movement
+ * ============================================ */
+@keyframes ntk-float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes ntk-float-delayed {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.ntk-float {
+  animation: ntk-float 3s ease-in-out infinite;
+}
+
+.ntk-float-delayed {
+  animation: ntk-float-delayed 3s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
