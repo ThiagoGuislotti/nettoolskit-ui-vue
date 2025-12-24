@@ -67,6 +67,7 @@
       color: var(--gray-900);
       line-height: 1.6;
       background: var(--white);
+      overflow-x: hidden;
     }
     
     code, pre {
@@ -95,9 +96,8 @@
       top: 0;
       left: 0;
       right: 0;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--gray-100);
+      background: white;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
       z-index: 100;
       padding: var(--spacing-md) 0;
     }
@@ -261,6 +261,17 @@
       max-width: 700px;
       border-radius: 16px;
       box-shadow: var(--shadow-strong);
+      animation: ntk-float 3s ease-in-out infinite;
+    }
+    
+    /* Float Animation */
+    @keyframes ntk-float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
     }
     
     /* Stats */
@@ -460,6 +471,8 @@
       border-radius: 16px;
       overflow: hidden;
       box-shadow: var(--shadow-strong);
+      animation: ntk-float 3s ease-in-out infinite;
+      animation-delay: 0.2s;
     }
     
     .code-header {
@@ -515,6 +528,8 @@
       width: 100%;
       border-radius: 16px;
       box-shadow: var(--shadow-strong);
+      animation: ntk-float 3s ease-in-out infinite;
+      animation-delay: 0.3s;
     }
     
     .form-visual-content h2 {
@@ -578,6 +593,8 @@
       max-width: 500px;
       border-radius: 16px;
       box-shadow: var(--shadow-strong);
+      animation: ntk-float 3s ease-in-out infinite;
+      animation-delay: 0.6s;
     }
     
     .composables-visual-content h2 {
@@ -644,6 +661,8 @@
       width: 100%;
       border-radius: 16px;
       box-shadow: var(--shadow-strong);
+      animation: ntk-float 3s ease-in-out infinite;
+      animation-delay: 0.9s;
     }
     
     .theme-grid {
@@ -923,6 +942,20 @@
       font-size: 0.875rem;
       color: var(--ntk-purple-light);
       margin-top: var(--spacing-md);
+      word-break: break-all;
+      overflow-wrap: break-word;
+      white-space: pre-wrap;
+    }
+    
+    .install-step-content {
+      overflow: hidden;
+    }
+    
+    .install-step-content code {
+      word-break: break-all;
+      overflow-wrap: break-word;
+      white-space: pre-wrap;
+      font-size: 0.75rem;
     }
     
     /* Theme Toggle */
@@ -1321,7 +1354,16 @@
     
     @media (max-width: 768px) {
       .hero h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .hero-visual img {
+        width: 100%;
+        max-width: 100%;
       }
       
       .nav {
@@ -1334,6 +1376,49 @@
       
       .component-grid {
         grid-template-columns: 1fr;
+      }
+      
+      .form-visual-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .form-visual-content h2 {
+        font-size: 1.75rem;
+      }
+      
+      .composables-visual-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .composables-visual-image {
+        padding-top: 0;
+        order: 2;
+      }
+      
+      .composables-visual-content {
+        order: 1;
+      }
+      
+      .composables-visual-content h2 {
+        font-size: 1.75rem;
+      }
+      
+      .composables-list {
+        grid-template-columns: 1fr;
+      }
+      
+      .code-block {
+        overflow-x: auto;
+      }
+      
+      .code-content pre {
+        font-size: 0.75rem;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+      
+      .theme-section h2 {
+        font-size: 1.75rem;
       }
       
       .footer-content {
@@ -1360,6 +1445,212 @@
         text-align: center;
       }
     }
+    
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 var(--spacing-md);
+      }
+      
+      .hero {
+        padding: 120px 0 60px;
+      }
+      
+      .hero h1 {
+        font-size: 1.75rem;
+      }
+      
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+      
+      .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .stats {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--spacing-lg);
+      }
+      
+      .stat {
+        text-align: center;
+        min-width: 80px;
+      }
+      
+      .stat-value {
+        font-size: 1.5rem;
+      }
+      
+      .stat-label {
+        font-size: 0.75rem;
+      }
+      
+      .section-header h2 {
+        font-size: 1.5rem;
+      }
+      
+      .form-visual-content h2,
+      .composables-visual-content h2,
+      .theme-section h2 {
+        font-size: 1.5rem;
+      }
+      
+      .install-step-content code {
+        font-size: 0.7rem;
+        word-break: break-all;
+      }
+      
+      .install-step {
+        padding: var(--spacing-md);
+      }
+      
+      .install-step code {
+        font-size: 0.65rem;
+        padding: var(--spacing-sm);
+      }
+      
+      .install-step h3 {
+        font-size: 1rem;
+      }
+    }
+    
+    /* Mobile Menu Button */
+    .mobile-menu-btn {
+      display: none;
+      background: transparent;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+      color: var(--gray-700);
+    }
+    
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    
+    body.dark-mode .mobile-menu-btn {
+      color: var(--gray-300);
+    }
+    
+    /* Mobile Drawer */
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 300px;
+      height: 100vh;
+      background: var(--white);
+      z-index: 1000;
+      transition: right 0.3s ease;
+      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .mobile-drawer.open {
+      right: 0;
+    }
+    
+    body.dark-mode .mobile-drawer {
+      background: var(--gray-900);
+    }
+    
+    .drawer-header {
+      padding: var(--spacing-lg);
+      border-bottom: 1px solid var(--gray-100);
+    }
+    
+    body.dark-mode .drawer-header {
+      border-bottom-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .drawer-close-btn {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      background: transparent;
+      border: none;
+      color: var(--gray-500);
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      padding: var(--spacing-sm);
+      border-radius: 8px;
+      transition: all var(--transition-fast);
+    }
+    
+    .drawer-close-btn:hover {
+      background: var(--gray-100);
+      color: var(--gray-700);
+    }
+    
+    body.dark-mode .drawer-close-btn {
+      color: var(--gray-400);
+    }
+    
+    body.dark-mode .drawer-close-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--white);
+    }
+    
+    .drawer-nav {
+      display: flex;
+      flex-direction: column;
+      padding: var(--spacing-lg);
+      gap: var(--spacing-sm);
+    }
+    
+    .drawer-link {
+      display: block;
+      padding: var(--spacing-md);
+      color: var(--gray-700);
+      font-weight: 500;
+      border-radius: 8px;
+      transition: all var(--transition-fast);
+    }
+    
+    .drawer-link:hover {
+      background: var(--gray-100);
+      color: var(--ntk-purple);
+    }
+    
+    body.dark-mode .drawer-link {
+      color: var(--gray-300);
+    }
+    
+    body.dark-mode .drawer-link:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--ntk-purple-light);
+    }
+    
+    .drawer-cta {
+      margin-top: var(--spacing-md);
+      justify-content: center;
+    }
+    
+    .drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .drawer-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
   </style>
 </head>
 <body>
@@ -1370,6 +1661,14 @@
         <img src="assets/nuget-icon.png" alt="NTK">
         <span class="logo-text">NetToolsKit UI</span>
       </div>
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
       <nav class="nav">
         <a href="#features">Features</a>
         <a href="#components">Components</a>
@@ -1400,6 +1699,27 @@
       </nav>
     </div>
   </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="drawer-header">
+      <button class="drawer-close-btn" id="drawer-close-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="13 17 18 12 13 7"/>
+          <polyline points="6 17 11 12 6 7"/>
+        </svg>
+        <span>Comprimir</span>
+      </button>
+    </div>
+    <nav class="drawer-nav">
+      <a href="#features" class="drawer-link">Features</a>
+      <a href="#components" class="drawer-link">Components</a>
+      <a href="#themes" class="drawer-link">Themes</a>
+      <a href="#installation" class="drawer-link">Installation</a>
+      <a href="https://github.com/ThiagoGuislotti/nettoolskit-ui-vue" class="btn btn-primary drawer-cta">GitHub</a>
+    </nav>
+  </div>
+  <div class="drawer-overlay" id="drawer-overlay"></div>
 
   <!-- Hero -->
   <section class="hero">
@@ -2075,6 +2395,33 @@
         
         // Save preference
         localStorage.setItem('ntk-theme', isDark ? 'dark' : 'light');
+      });
+      
+      // Mobile drawer functionality
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const drawerCloseBtn = document.getElementById('drawer-close-btn');
+      const mobileDrawer = document.getElementById('mobile-drawer');
+      const drawerOverlay = document.getElementById('drawer-overlay');
+      const drawerLinks = document.querySelectorAll('.drawer-link');
+      
+      function openDrawer() {
+        mobileDrawer.classList.add('open');
+        drawerOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+      
+      function closeDrawer() {
+        mobileDrawer.classList.remove('open');
+        drawerOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+      
+      mobileMenuBtn.addEventListener('click', openDrawer);
+      drawerCloseBtn.addEventListener('click', closeDrawer);
+      drawerOverlay.addEventListener('click', closeDrawer);
+      
+      drawerLinks.forEach(link => {
+        link.addEventListener('click', closeDrawer);
       });
     });
   </script>

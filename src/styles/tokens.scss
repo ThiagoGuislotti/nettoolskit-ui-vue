@@ -371,3 +371,56 @@ $ntk-card-border: var(--ntk-card-border);
 $ntk-sidebar-brand: var(--ntk-sidebar-brand);
 $ntk-menu-bg: var(--ntk-menu-bg);
 $ntk-popup-bg: var(--ntk-popup-bg);
+
+/* ============================================
+ * Animations
+ * Animações reutilizáveis
+ * ============================================ */
+
+// Float animation - subtle up/down movement for images
+@keyframes ntk-float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+// Float animation with delay
+@keyframes ntk-float-delayed {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+// Loading shimmer animation
+@keyframes ntk-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+// CSS classes for animations
+.ntk-float {
+  animation: ntk-float 3s ease-in-out infinite;
+}
+
+.ntk-float-delayed {
+  animation: ntk-float 3s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.ntk-loading {
+  background: var(--ntk-gradient-loading);
+  background-size: 200% 100%;
+  animation: ntk-loading 1.5s infinite;
+}
