@@ -41,4 +41,4 @@ export type { DesignTokens } from './styles';
 // ============================================
 // Utils
 // ============================================
-export * from './utils/formatters';
+export * from './utils';
