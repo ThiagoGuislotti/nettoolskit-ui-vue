@@ -257,7 +257,8 @@
     }
     
     .hero-visual img {
-      width: 100%;
+      width: 120%;
+      max-width: 700px;
       border-radius: 16px;
       box-shadow: var(--shadow-strong);
     }
@@ -490,6 +491,117 @@
     .code-content .component { color: #61AFEF; }
     .code-content .prop { color: #E5C07B; }
     .code-content .comment { color: #5C6370; }
+    
+    /* Form Components Visual Section */
+    .form-visual-section {
+      padding: var(--spacing-3xl) 0;
+      background: var(--white);
+    }
+    
+    .form-visual-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-3xl);
+      align-items: center;
+    }
+    
+    .form-visual-image img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: var(--shadow-strong);
+    }
+    
+    .form-visual-content h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: var(--spacing-md);
+      color: var(--gray-900);
+    }
+    
+    .form-visual-content p {
+      font-size: 1.125rem;
+      color: var(--gray-500);
+      margin-bottom: var(--spacing-xl);
+    }
+    
+    .form-features {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+    
+    .form-feature {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-md);
+    }
+    
+    .form-feature-icon {
+      width: 32px;
+      height: 32px;
+      background: rgba(81, 43, 212, 0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ntk-purple);
+    }
+    
+    /* Composables Visual Section */
+    .composables-visual-section {
+      padding: var(--spacing-3xl) 0;
+      background: var(--gray-100);
+    }
+    
+    .composables-visual-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-3xl);
+      align-items: center;
+    }
+    
+    .composables-visual-image img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: var(--shadow-strong);
+    }
+    
+    .composables-visual-content h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: var(--spacing-md);
+      color: var(--gray-900);
+    }
+    
+    .composables-visual-content p {
+      font-size: 1.125rem;
+      color: var(--gray-500);
+      margin-bottom: var(--spacing-xl);
+    }
+    
+    .composables-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-md);
+    }
+    
+    .composable-item {
+      padding: var(--spacing-md);
+      background: var(--white);
+      border-radius: 8px;
+      border: 1px solid var(--gray-200);
+    }
+    
+    .composable-item code {
+      color: var(--ntk-purple);
+      font-weight: 600;
+    }
+    
+    .composable-item p {
+      font-size: 0.75rem;
+      color: var(--gray-500);
+      margin-top: var(--spacing-xs);
+    }
     
     /* Theme Section */
     .themes {
@@ -958,12 +1070,105 @@
     </div>
   </section>
 
+  <!-- Form Components Visual -->
+  <section class="form-visual-section">
+    <div class="container">
+      <div class="form-visual-container">
+        <div class="form-visual-image">
+          <img src="assets/form-components.png" alt="Form Components">
+        </div>
+        <div class="form-visual-content">
+          <h2>Complete Form Toolkit</h2>
+          <p>Everything you need to build complex forms with validation, accessibility, and consistent styling.</p>
+          <div class="form-features">
+            <div class="form-feature">
+              <div class="form-feature-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <span>Built-in validation with useFormRules</span>
+            </div>
+            <div class="form-feature">
+              <div class="form-feature-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <span>Date and time pickers with localization</span>
+            </div>
+            <div class="form-feature">
+              <div class="form-feature-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <span>Multi-select with chip display</span>
+            </div>
+            <div class="form-feature">
+              <div class="form-feature-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <span>Consistent error states and messages</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Composables Visual -->
+  <section class="composables-visual-section">
+    <div class="container">
+      <div class="composables-visual-container">
+        <div class="composables-visual-content">
+          <h2>Powerful Composables</h2>
+          <p>Reusable Vue 3 composition functions that encapsulate common logic and state management.</p>
+          <div class="composables-list">
+            <div class="composable-item">
+              <code>useTheme</code>
+              <p>Runtime theme switching</p>
+            </div>
+            <div class="composable-item">
+              <code>useNotification</code>
+              <p>Toast notifications</p>
+            </div>
+            <div class="composable-item">
+              <code>useDialog</code>
+              <p>Confirmation dialogs</p>
+            </div>
+            <div class="composable-item">
+              <code>useFormRules</code>
+              <p>Validation rules</p>
+            </div>
+            <div class="composable-item">
+              <code>useDebounce</code>
+              <p>Debounced values</p>
+            </div>
+            <div class="composable-item">
+              <code>useAsync</code>
+              <p>Async state handling</p>
+            </div>
+          </div>
+        </div>
+        <div class="composables-visual-image">
+          <img src="assets/composables-visual.png" alt="Composables Architecture">
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Themes -->
   <section class="themes" id="themes">
     <div class="container">
       <div class="section-header">
         <h2>Built-in Themes</h2>
         <p>Three production-ready themes with runtime switching support.</p>
+      </div>
+      <div style="margin-bottom: var(--spacing-3xl);">
+        <img src="assets/theme-preview.png" alt="Theme Preview" style="width: 100%; border-radius: 16px; box-shadow: var(--shadow-strong);">
       </div>
       <div class="theme-grid">
         <div class="theme-card">
