@@ -1,24 +1,25 @@
 /**
  * Quasar SCSS Variables
- * Landing Page Style - Synced with design-system.scss
+ * Landing Page Style - Synced with tokens.scss
  * Modern design with Inter font, gradients, and rounded corners
  */
 
 /* ============================================
  * Primary Colors - Landing Page Palette
+ * Usando as variáveis CSS do tokens.scss
  * ============================================ */
-$primary: #1976d2 !default;
-$secondary: #1565c0 !default;
-$accent: #f5f7fa !default;
+$primary: #512BD4 !default;
+$secondary: #64748b !default;
+$accent: #f8fafc !default;
 
-$positive: #4caf50 !default;
-$negative: #f44336 !default;
-$info: #2196f3 !default;
-$warning: #ff9800 !default;
+$positive: #22c55e !default;
+$negative: #ef4444 !default;
+$info: #3b82f6 !default;
+$warning: #f59e0b !default;
 
-/* Dark mode (removed but keeping for compatibility) */
-$dark: #424242 !default;
-$dark-page: #424242 !default;
+/* Dark mode */
+$dark: #1e293b !default;
+$dark-page: #0f172a !default;
 
 /* ============================================
  * Typography - Landing Page Style
@@ -26,21 +27,21 @@ $dark-page: #424242 !default;
 $typography-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !default;
 
 $h1: (
-  size: 3rem,
+  size: 2.25rem,
   line-height: 1.2,
   letter-spacing: -0.02em,
   weight: 800
 ) !default;
 
 $h2: (
-  size: 2.5rem,
+  size: 1.875rem,
   line-height: 1.2,
   letter-spacing: -0.01em,
   weight: 700
 ) !default;
 
 $h3: (
-  size: 1.75rem,
+  size: 1.5rem,
   line-height: 1.3,
   letter-spacing: normal,
   weight: 700
@@ -88,8 +89,8 @@ $generic-border-radius: 12px !default;
  * Shadows - Landing Page Elevation
  * ============================================ */
 $shadow-0: none !default;
-$shadow-1: 0 2px 4px rgba(0, 0, 0, 0.1) !default;
-$shadow-2: 0 4px 8px rgba(0, 0, 0, 0.15) !default;
-$shadow-3: 0 8px 16px rgba(0, 0, 0, 0.2) !default;
-$shadow-4: 0 12px 24px rgba(0, 0, 0, 0.25) !default;
-$shadow-5: 0 16px 32px rgba(0, 0, 0, 0.3) !default;
+$shadow-1: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !default;
+$shadow-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1) !default;
+$shadow-3: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1) !default;
+$shadow-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !default;
+$shadow-5: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !default;

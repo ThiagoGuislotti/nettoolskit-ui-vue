@@ -30,7 +30,7 @@ const spacingClass = computed(() => {
 
 <style lang="scss" scoped>
 .section-header {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--ntk-font-family);
 
   &--spacing-sm {
     margin-bottom: 1rem;
@@ -45,16 +45,16 @@ const spacingClass = computed(() => {
   }
 
   &__title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #424242;
+    font-size: var(--ntk-font-size-4xl);
+    font-weight: var(--ntk-font-weight-bold);
+    color: var(--ntk-text-dark);
     margin: 0;
     line-height: 1.2;
   }
 
   &__subtitle {
-    font-size: 1rem;
-    color: #757575;
+    font-size: var(--ntk-font-size-base);
+    color: var(--ntk-text-light);
     margin: 0.5rem 0 0 0;
     line-height: 1.6;
   }

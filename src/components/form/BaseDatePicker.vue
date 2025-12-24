@@ -74,83 +74,83 @@ const setToday = () => {
 
 <style scoped lang="scss">
 .base-date-picker {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--ntk-font-family);
 
   :deep(.q-field__control) {
-    border-radius: 8px;
-    border: 1px solid rgba(0, 0, 0, 0.24);
-    background: #ffffff;
-    transition: all 0.3s ease;
+    border-radius: var(--ntk-radius-md);
+    border: 1px solid var(--ntk-input-border);
+    background: var(--ntk-input-bg);
+    transition: all var(--ntk-transition-base);
 
     &:hover {
-      border-color: rgba(0, 0, 0, 0.87);
+      border-color: var(--ntk-input-border-hover);
     }
   }
 
   :deep(.q-field--outlined.q-field--focused .q-field__control) {
-    border-color: #1976d2;
+    border-color: var(--ntk-input-border-focus);
     box-shadow: none;
   }
 
   :deep(.q-field__label) {
-    color: #757575;
-    font-weight: 500;
+    color: var(--ntk-input-label);
+    font-weight: var(--ntk-font-weight-medium);
   }
 
   :deep(.q-field__native) {
-    color: #424242;
-    font-family: 'Inter', sans-serif;
+    color: var(--ntk-input-text);
+    font-family: var(--ntk-font-family);
   }
 
   :deep(.q-icon) {
-    color: #757575;
+    color: var(--ntk-input-icon);
   }
 }
 </style>
 
 <style lang="scss">
 .q-date {
-  font-family: 'Inter', sans-serif;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-  border-radius: 8px;
-  background: #fafafa !important;
+  font-family: var(--ntk-font-family);
+  box-shadow: var(--ntk-shadow-popup);
+  border-radius: var(--ntk-radius-md);
+  background: var(--ntk-popup-bg) !important;
 
   .q-date__header {
-    background-color: #1976d2 !important;
-    color: #ffffff !important;
+    background-color: var(--ntk-popup-header-bg) !important;
+    color: var(--ntk-popup-header-text) !important;
   }
 
   .q-date__view {
-    background: #fafafa !important;
+    background: var(--ntk-popup-bg) !important;
   }
 
   .q-date__calendar {
-    background: #fafafa !important;
+    background: var(--ntk-popup-bg) !important;
     
     .q-btn {
-      color: #424242 !important;
+      color: var(--ntk-text-dark) !important;
       
       &.q-btn--flat {
-        color: #424242 !important;
+        color: var(--ntk-text-dark) !important;
       }
     }
   }
 
   .q-date__calendar-item .q-btn {
-    color: #424242 !important;
+    color: var(--ntk-text-dark) !important;
     
     &:hover {
-      background-color: #f5f5f5 !important;
+      background-color: var(--ntk-bg-hover) !important;
     }
     
     &.q-btn--unelevated {
-      background-color: #1976d2 !important;
-      color: #ffffff !important;
+      background-color: var(--ntk-primary) !important;
+      color: var(--ntk-text-inverse) !important;
     }
   }
 
   .q-btn--flat {
-    color: #1976d2 !important;
+    color: var(--ntk-primary) !important;
   }
 }
 </style>

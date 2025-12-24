@@ -20,9 +20,6 @@
 import { computed } from 'vue'
 import { QSpinner } from 'quasar'
 
-// ✅ NUNCA usar default export (frontend.instructions.md)
-// ✅ TypeScript interface para props
-
 interface Props {
   variant?: 'primary' | 'secondary' | 'outlined' | 'text' | 'success' | 'danger'
   size?: 'sm' | 'default' | 'large'
@@ -59,9 +56,9 @@ const buttonClasses = computed(() => ({
   gap: 6px;
   padding: 6px 18px;
   min-height: 34px;
-  font-family: var(--font-family);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
+  font-family: var(--ntk-font-family);
+  font-size: var(--ntk-font-size-sm);
+  font-weight: var(--ntk-font-weight-medium);
   line-height: 1.5;
   text-align: center;
   text-decoration: none;
@@ -69,25 +66,25 @@ const buttonClasses = computed(() => ({
   cursor: pointer;
   user-select: none;
   border: none;
-  border-radius: var(--border-radius-sm);
+  border-radius: var(--ntk-radius-sm);
   background: transparent;
-  transition: all var(--transition-fast);
+  transition: all var(--ntk-transition-fast);
 
   &:focus-visible {
-    outline: 2px solid var(--color-primary);
+    outline: 2px solid var(--ntk-primary);
     outline-offset: 2px;
   }
 
   // Variants
   &--primary {
-    color: var(--color-text-inverse);
-    background: var(--color-action-primary);
+    color: var(--ntk-text-inverse);
+    background: var(--ntk-primary);
     border: 2px solid transparent;
 
     &:hover:not(:disabled) {
-      background: var(--color-action-primary-hover);
+      background: var(--ntk-primary-dark);
       transform: translateY(-2px);
-      box-shadow: var(--shadow-lg);
+      box-shadow: var(--ntk-shadow-lg);
     }
 
     &:active:not(:disabled) {
@@ -96,13 +93,13 @@ const buttonClasses = computed(() => ({
   }
 
   &--secondary {
-    color: var(--color-action-primary);
+    color: var(--ntk-primary);
     background: transparent;
-    border: 2px solid var(--color-action-primary);
+    border: 2px solid var(--ntk-primary);
 
     &:hover:not(:disabled) {
-      background: var(--color-action-primary);
-      color: var(--color-text-inverse);
+      background: var(--ntk-primary);
+      color: var(--ntk-text-inverse);
       transform: translateY(-2px);
     }
 
@@ -112,14 +109,14 @@ const buttonClasses = computed(() => ({
   }
 
   &--outlined {
-    color: var(--color-text-dark);
+    color: var(--ntk-text-dark);
     background: transparent;
-    border: 2px solid var(--color-border);
+    border: 2px solid var(--ntk-border-color);
 
     &:hover:not(:disabled) {
-      background: var(--color-bg-light);
-      border-color: var(--color-action-primary);
-      color: var(--color-action-primary);
+      background: var(--ntk-bg-tertiary);
+      border-color: var(--ntk-primary);
+      color: var(--ntk-primary);
     }
 
     &:active:not(:disabled) {
@@ -128,14 +125,14 @@ const buttonClasses = computed(() => ({
   }
 
   &--text {
-    color: var(--color-text-dark);
+    color: var(--ntk-text-dark);
     background: transparent;
     border: 2px solid transparent;
     padding: 8px 16px;
 
     &:hover:not(:disabled) {
-      background: var(--color-bg-light);
-      color: var(--color-action-primary);
+      background: var(--ntk-bg-tertiary);
+      color: var(--ntk-primary);
     }
 
     &:active:not(:disabled) {
@@ -144,14 +141,14 @@ const buttonClasses = computed(() => ({
   }
 
   &--success {
-    color: var(--color-text-inverse);
-    background: var(--color-success);
+    color: var(--ntk-text-inverse);
+    background: var(--ntk-success);
     border: 2px solid transparent;
 
     &:hover:not(:disabled) {
-      background: darken(#28a745, 10%);
+      background: var(--ntk-success-dark);
       transform: translateY(-2px);
-      box-shadow: var(--shadow-lg);
+      box-shadow: var(--ntk-shadow-lg);
     }
 
     &:active:not(:disabled) {
@@ -160,14 +157,14 @@ const buttonClasses = computed(() => ({
   }
 
   &--danger {
-    color: var(--color-text-inverse);
-    background: var(--color-action-danger);
+    color: var(--ntk-text-inverse);
+    background: var(--ntk-error);
     border: 2px solid transparent;
 
     &:hover:not(:disabled) {
-      background: var(--color-action-danger-hover);
+      background: var(--ntk-error-dark);
       transform: translateY(-2px);
-      box-shadow: var(--shadow-lg);
+      box-shadow: var(--ntk-shadow-lg);
     }
 
     &:active:not(:disabled) {
@@ -179,19 +176,19 @@ const buttonClasses = computed(() => ({
   &--sm {
     padding: 4px 12px;
     min-height: 28px;
-    font-size: var(--font-size-xs);
+    font-size: var(--ntk-font-size-xs);
   }
 
   &--default {
     padding: 6px 18px;
     min-height: 34px;
-    font-size: var(--font-size-sm);
+    font-size: var(--ntk-font-size-sm);
   }
 
   &--large {
     padding: 10px 28px;
     min-height: 44px;
-    font-size: var(--font-size-base);
+    font-size: var(--ntk-font-size-base);
   }
 
   // States

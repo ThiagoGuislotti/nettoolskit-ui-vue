@@ -93,11 +93,11 @@ const textStyle = computed(() => ({
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-weight: 700;
-  border-radius: 8px;
+  color: var(--ntk-text-inverse);
+  font-weight: var(--ntk-font-weight-bold);
+  border-radius: var(--ntk-radius-md);
   transition: transform 0.2s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--ntk-shadow-sm);
 }
 
 .logo-content {
@@ -106,14 +106,14 @@ const textStyle = computed(() => ({
 }
 
 .logo-text {
-  font-weight: 700;
+  font-weight: var(--ntk-font-weight-bold);
   line-height: 1.2;
 }
 
 .logo-tagline {
   font-size: 0.65em;
-  color: var(--theme-text-muted, #9e9e9e);
-  font-weight: 400;
+  color: var(--ntk-text-muted);
+  font-weight: var(--ntk-font-weight-normal);
 }
 
 // Tamanhos
@@ -122,7 +122,7 @@ const textStyle = computed(() => ({
     width: 28px;
     height: 28px;
     font-size: 14px;
-    border-radius: 6px;
+    border-radius: var(--ntk-radius-sm);
   }
   .logo-text {
     font-size: 16px;
@@ -145,7 +145,7 @@ const textStyle = computed(() => ({
     width: 48px;
     height: 48px;
     font-size: 24px;
-    border-radius: 10px;
+    border-radius: var(--ntk-radius-lg);
   }
   .logo-text {
     font-size: 28px;
@@ -157,7 +157,7 @@ const textStyle = computed(() => ({
     width: 64px;
     height: 64px;
     font-size: 32px;
-    border-radius: 12px;
+    border-radius: var(--ntk-radius-lg);
   }
   .logo-text {
     font-size: 36px;

@@ -156,10 +156,10 @@ const connectorClass = computed(() => ({
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  color: white;
-  font-size: 1.25rem;
-  font-weight: 700;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: var(--ntk-text-inverse);
+  font-size: var(--ntk-font-size-xl);
+  font-weight: var(--ntk-font-weight-bold);
+  box-shadow: var(--ntk-shadow-md);
 }
 
 .step-content {
@@ -167,16 +167,16 @@ const connectorClass = computed(() => ({
 }
 
 .step-title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--theme-text, #424242);
+  font-size: var(--ntk-font-size-lg);
+  font-weight: var(--ntk-font-weight-semibold);
+  color: var(--ntk-text-dark);
   margin: 0 0 0.5rem 0;
-  font-family: var(--theme-font-display, 'Poppins', sans-serif);
+  font-family: var(--ntk-font-family-display);
 }
 
 .step-description {
-  font-size: 0.9rem;
-  color: var(--theme-text-light, #757575);
+  font-size: var(--ntk-font-size-sm);
+  color: var(--ntk-text-light);
   margin: 0;
   line-height: 1.6;
 }
@@ -185,7 +185,7 @@ const connectorClass = computed(() => ({
 .step-connector {
   .connector-icon {
     font-size: 1.5rem;
-    color: var(--theme-text-muted, #9e9e9e);
+    color: var(--ntk-text-muted);
   }
 }
 
@@ -203,7 +203,7 @@ const connectorClass = computed(() => ({
         top: 3rem;
         bottom: -1rem;
         width: 2px;
-        background: var(--theme-border, #e0e0e0);
+        background: var(--ntk-border-color);
       }
       
       &:last-child::before {
@@ -223,15 +223,15 @@ const connectorClass = computed(() => ({
   .step-number {
     width: 32px;
     height: 32px;
-    font-size: 0.9rem;
+    font-size: var(--ntk-font-size-sm);
   }
   
   .step-title {
-    font-size: 1rem;
+    font-size: var(--ntk-font-size-base);
   }
   
   .step-description {
-    font-size: 0.85rem;
+    font-size: var(--ntk-font-size-xs);
   }
 }
 
@@ -239,11 +239,11 @@ const connectorClass = computed(() => ({
 .step.active {
   .step-number {
     transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--ntk-shadow-lg);
   }
   
   .step-title {
-    color: var(--theme-primary, #1976d2);
+    color: var(--ntk-primary);
   }
 }
 </style>

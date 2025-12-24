@@ -23,6 +23,7 @@
   --ntk-primary: #512BD4;
   --ntk-primary-dark: #3B1F9E;
   --ntk-primary-light: #7B74D4;
+  --ntk-primary-rgb: 81, 43, 212;
   
   /* Gradiente Primário */
   --ntk-primary-gradient-start: var(--ntk-primary);
@@ -48,6 +49,8 @@
   --ntk-bg-card: #ffffff;
   --ntk-bg-elevated: #ffffff;
   --ntk-bg-overlay: rgba(0, 0, 0, 0.5);
+  --ntk-bg-hover: #f5f5f5;
+  --ntk-bg-active: rgba(var(--ntk-primary-rgb), 0.08);
   
   /* ============================================
    * Text Colors
@@ -60,6 +63,9 @@
   --ntk-text-on-primary: #ffffff;
   --ntk-text-link: var(--ntk-primary);
   --ntk-text-link-hover: var(--ntk-primary-dark);
+  --ntk-text-dark: #424242;
+  --ntk-text-light: #757575;
+  --ntk-text-lighter: #9e9e9e;
   
   /* ============================================
    * Border Colors
@@ -69,6 +75,8 @@
   --ntk-border-light: #f1f5f9;
   --ntk-border-dark: #cbd5e1;
   --ntk-border-focus: var(--ntk-primary);
+  --ntk-border-input: rgba(0, 0, 0, 0.24);
+  --ntk-border-input-hover: rgba(0, 0, 0, 0.87);
   
   /* ============================================
    * Feedback Colors
@@ -90,6 +98,10 @@
   --ntk-info-light: #dbeafe;
   --ntk-info-dark: #2563eb;
   
+  /* Aliases para compatibilidade */
+  --ntk-positive: var(--ntk-success);
+  --ntk-negative: var(--ntk-error);
+  
   /* ============================================
    * Gradients
    * Gradientes pré-definidos
@@ -106,6 +118,10 @@
   --ntk-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
   --ntk-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
   --ntk-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --ntk-shadow-card: 0 4px 8px rgba(0, 0, 0, 0.15);
+  --ntk-shadow-card-hover: 0 8px 16px rgba(0, 0, 0, 0.2);
+  --ntk-shadow-popup: 0 8px 24px rgba(0, 0, 0, 0.25);
+  --ntk-shadow-focus: 0 4px 8px rgba(var(--ntk-primary-rgb), 0.2);
   
   /* ============================================
    * Border Radius
@@ -115,6 +131,7 @@
   --ntk-radius-md: 8px;
   --ntk-radius-lg: 12px;
   --ntk-radius-xl: 16px;
+  --ntk-radius-2xl: 24px;
   --ntk-radius-full: 9999px;
   
   /* ============================================
@@ -133,6 +150,23 @@
   --ntk-font-family-display: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --ntk-font-family-mono: 'Fira Code', 'Consolas', 'Monaco', monospace;
   
+  /* Font Sizes */
+  --ntk-font-size-xs: 0.75rem;
+  --ntk-font-size-sm: 0.875rem;
+  --ntk-font-size-base: 1rem;
+  --ntk-font-size-lg: 1.125rem;
+  --ntk-font-size-xl: 1.25rem;
+  --ntk-font-size-2xl: 1.5rem;
+  --ntk-font-size-3xl: 1.875rem;
+  --ntk-font-size-4xl: 2.25rem;
+  
+  /* Font Weights */
+  --ntk-font-weight-normal: 400;
+  --ntk-font-weight-medium: 500;
+  --ntk-font-weight-semibold: 600;
+  --ntk-font-weight-bold: 700;
+  --ntk-font-weight-extrabold: 800;
+  
   /* ============================================
    * Footer Colors
    * Cores específicas para rodapé escuro
@@ -143,6 +177,51 @@
   --ntk-footer-link: var(--ntk-primary-light);
   --ntk-footer-link-hover: var(--ntk-primary);
   --ntk-footer-border: rgba(255, 255, 255, 0.1);
+  
+  /* ============================================
+   * Form Colors
+   * Cores específicas para formulários
+   * ============================================ */
+  --ntk-input-bg: var(--ntk-bg-primary);
+  --ntk-input-border: var(--ntk-border-input);
+  --ntk-input-border-hover: var(--ntk-border-input-hover);
+  --ntk-input-border-focus: var(--ntk-primary);
+  --ntk-input-text: var(--ntk-text-dark);
+  --ntk-input-label: var(--ntk-text-light);
+  --ntk-input-placeholder: var(--ntk-text-lighter);
+  --ntk-input-icon: var(--ntk-text-light);
+  
+  /* ============================================
+   * Component Colors
+   * Cores específicas para componentes
+   * ============================================ */
+  --ntk-chip-bg: var(--ntk-bg-tertiary);
+  --ntk-chip-text: var(--ntk-text-dark);
+  --ntk-chip-border: transparent;
+  --ntk-chip-bg-selected: var(--ntk-primary);
+  --ntk-chip-text-selected: var(--ntk-text-inverse);
+  
+  --ntk-card-bg: var(--ntk-bg-card);
+  --ntk-card-border: var(--ntk-border-color);
+  --ntk-card-shadow: var(--ntk-shadow-card);
+  --ntk-card-shadow-hover: var(--ntk-shadow-card-hover);
+  
+  --ntk-sidebar-bg: var(--ntk-bg-primary);
+  --ntk-sidebar-border: var(--ntk-border-color);
+  --ntk-sidebar-item-hover: var(--ntk-bg-hover);
+  --ntk-sidebar-item-active-bg: var(--ntk-bg-active);
+  --ntk-sidebar-item-active-text: var(--ntk-primary);
+  --ntk-sidebar-brand: var(--ntk-primary);
+  
+  --ntk-menu-bg: #fafafa;
+  --ntk-menu-item-hover: var(--ntk-bg-hover);
+  --ntk-menu-item-active-bg: var(--ntk-primary);
+  --ntk-menu-item-active-text: var(--ntk-text-inverse);
+  
+  --ntk-popup-bg: #fafafa;
+  --ntk-popup-shadow: var(--ntk-shadow-popup);
+  --ntk-popup-header-bg: var(--ntk-primary);
+  --ntk-popup-header-text: var(--ntk-text-inverse);
 }
 
 /* ============================================
@@ -153,6 +232,9 @@
 .dark,
 [data-theme="dark"],
 .body--dark {
+  /* Primary RGB for dark mode */
+  --ntk-primary-rgb: 123, 116, 212;
+  
   /* Background Colors - Dark */
   --ntk-bg-primary: #0f172a;
   --ntk-bg-secondary: #1e293b;
@@ -160,22 +242,32 @@
   --ntk-bg-card: #1e293b;
   --ntk-bg-elevated: #334155;
   --ntk-bg-overlay: rgba(0, 0, 0, 0.7);
+  --ntk-bg-hover: #334155;
+  --ntk-bg-active: rgba(var(--ntk-primary-rgb), 0.15);
   
   /* Text Colors - Dark */
   --ntk-text-primary: #f1f5f9;
   --ntk-text-secondary: #cbd5e1;
   --ntk-text-muted: #94a3b8;
   --ntk-text-inverse: #0f172a;
+  --ntk-text-dark: #f1f5f9;
+  --ntk-text-light: #cbd5e1;
+  --ntk-text-lighter: #94a3b8;
   
   /* Border Colors - Dark */
   --ntk-border-color: #334155;
   --ntk-border-light: #475569;
   --ntk-border-dark: #1e293b;
+  --ntk-border-input: rgba(255, 255, 255, 0.24);
+  --ntk-border-input-hover: rgba(255, 255, 255, 0.5);
   
   /* Shadows - Dark (mais sutis) */
   --ntk-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
   --ntk-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
   --ntk-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+  --ntk-shadow-card: 0 4px 8px rgba(0, 0, 0, 0.3);
+  --ntk-shadow-card-hover: 0 8px 16px rgba(0, 0, 0, 0.4);
+  --ntk-shadow-popup: 0 8px 24px rgba(0, 0, 0, 0.5);
   
   /* Gradients - Dark */
   --ntk-gradient-hero: linear-gradient(135deg, var(--ntk-bg-primary) 0%, var(--ntk-bg-secondary) 100%);
@@ -186,6 +278,24 @@
   --ntk-warning-light: rgba(245, 158, 11, 0.2);
   --ntk-error-light: rgba(239, 68, 68, 0.2);
   --ntk-info-light: rgba(59, 130, 246, 0.2);
+  
+  /* Form Colors - Dark */
+  --ntk-input-bg: var(--ntk-bg-secondary);
+  --ntk-input-text: var(--ntk-text-primary);
+  --ntk-input-label: var(--ntk-text-secondary);
+  --ntk-input-placeholder: var(--ntk-text-muted);
+  --ntk-input-icon: var(--ntk-text-secondary);
+  
+  /* Component Colors - Dark */
+  --ntk-chip-bg: var(--ntk-bg-tertiary);
+  --ntk-chip-text: var(--ntk-text-primary);
+  
+  --ntk-menu-bg: var(--ntk-bg-secondary);
+  --ntk-menu-item-hover: var(--ntk-bg-tertiary);
+  
+  --ntk-popup-bg: var(--ntk-bg-secondary);
+  
+  --ntk-sidebar-item-hover: var(--ntk-bg-tertiary);
 }
 
 /* ============================================
@@ -209,6 +319,8 @@ $ntk-bg-primary: var(--ntk-bg-primary);
 $ntk-bg-secondary: var(--ntk-bg-secondary);
 $ntk-bg-tertiary: var(--ntk-bg-tertiary);
 $ntk-bg-card: var(--ntk-bg-card);
+$ntk-bg-hover: var(--ntk-bg-hover);
+$ntk-bg-active: var(--ntk-bg-active);
 
 // Text
 $ntk-text-primary: var(--ntk-text-primary);
@@ -216,16 +328,23 @@ $ntk-text-secondary: var(--ntk-text-secondary);
 $ntk-text-muted: var(--ntk-text-muted);
 $ntk-text-inverse: var(--ntk-text-inverse);
 $ntk-text-on-primary: var(--ntk-text-on-primary);
+$ntk-text-dark: var(--ntk-text-dark);
+$ntk-text-light: var(--ntk-text-light);
+$ntk-text-lighter: var(--ntk-text-lighter);
 
 // Borders
 $ntk-border-color: var(--ntk-border-color);
 $ntk-border-light: var(--ntk-border-light);
+$ntk-border-radius-sm: var(--ntk-radius-sm);
 $ntk-border-radius-md: var(--ntk-radius-md);
+$ntk-border-radius-lg: var(--ntk-radius-lg);
 
 // Shadows
 $ntk-shadow-sm: var(--ntk-shadow-sm);
 $ntk-shadow-md: var(--ntk-shadow-md);
 $ntk-shadow-lg: var(--ntk-shadow-lg);
+$ntk-shadow-card: var(--ntk-shadow-card);
+$ntk-shadow-card-hover: var(--ntk-shadow-card-hover);
 
 // Transitions
 $ntk-transition-fast: var(--ntk-transition-fast);
@@ -236,3 +355,19 @@ $ntk-success: var(--ntk-success);
 $ntk-warning: var(--ntk-warning);
 $ntk-error: var(--ntk-error);
 $ntk-info: var(--ntk-info);
+
+// Form
+$ntk-input-bg: var(--ntk-input-bg);
+$ntk-input-border: var(--ntk-input-border);
+$ntk-input-border-hover: var(--ntk-input-border-hover);
+$ntk-input-border-focus: var(--ntk-input-border-focus);
+$ntk-input-text: var(--ntk-input-text);
+$ntk-input-label: var(--ntk-input-label);
+$ntk-input-icon: var(--ntk-input-icon);
+
+// Components
+$ntk-card-bg: var(--ntk-card-bg);
+$ntk-card-border: var(--ntk-card-border);
+$ntk-sidebar-brand: var(--ntk-sidebar-brand);
+$ntk-menu-bg: var(--ntk-menu-bg);
+$ntk-popup-bg: var(--ntk-popup-bg);

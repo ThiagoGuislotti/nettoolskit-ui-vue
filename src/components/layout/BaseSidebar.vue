@@ -188,8 +188,8 @@ const handleItemClick = (item: SidebarItem) => {
 
 <style scoped lang="scss">
 .base-sidebar {
-  font-family: 'Inter', sans-serif;
-  border-right: 1px solid rgba(0, 0, 0, 0.12);
+  font-family: var(--ntk-font-family);
+  border-right: 1px solid var(--ntk-sidebar-border);
 
   :deep(.q-scrollarea__content) {
     display: flex;
@@ -200,7 +200,7 @@ const handleItemClick = (item: SidebarItem) => {
 
 .base-sidebar__header {
   padding: 20px 16px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  border-bottom: 1px solid var(--ntk-sidebar-border);
 }
 
 .base-sidebar__logo {
@@ -216,10 +216,10 @@ const handleItemClick = (item: SidebarItem) => {
 }
 
 .base-sidebar__brand {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #1976d2;
-  font-family: 'Inter', sans-serif;
+  font-size: var(--ntk-font-size-xl);
+  font-weight: var(--ntk-font-weight-bold);
+  color: var(--ntk-sidebar-brand);
+  font-family: var(--ntk-font-family);
 }
 
 .base-sidebar__list {
@@ -228,12 +228,12 @@ const handleItemClick = (item: SidebarItem) => {
 }
 
 .base-sidebar__item {
-  border-radius: 8px;
+  border-radius: var(--ntk-radius-md);
   margin: 4px 8px;
   transition: all 0.2s ease;
 
   &:hover {
-    background: rgba(0, 0, 0, 0.04);
+    background: var(--ntk-sidebar-item-hover);
   }
 
   :deep(.q-item__section--avatar) {
@@ -245,26 +245,26 @@ const handleItemClick = (item: SidebarItem) => {
   }
 
   :deep(.q-item__label) {
-    font-weight: 500;
-    font-size: 0.875rem;
+    font-weight: var(--ntk-font-weight-medium);
+    font-size: var(--ntk-font-size-sm);
   }
 
   :deep(.q-item__label--caption) {
-    font-size: 0.75rem;
+    font-size: var(--ntk-font-size-xs);
     opacity: 0.7;
   }
 
   &.q-router-link--active {
-    background: rgba(25, 118, 210, 0.08);
-    color: #1976d2;
+    background: var(--ntk-sidebar-item-active-bg);
+    color: var(--ntk-sidebar-item-active-text);
 
     :deep(.q-icon) {
-      color: #1976d2;
+      color: var(--ntk-sidebar-item-active-text);
     }
 
     :deep(.q-item__label) {
-      font-weight: 600;
-      color: #1976d2;
+      font-weight: var(--ntk-font-weight-semibold);
+      color: var(--ntk-sidebar-item-active-text);
     }
   }
 }
@@ -276,7 +276,7 @@ const handleItemClick = (item: SidebarItem) => {
 
 .base-sidebar__footer {
   padding: 16px 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  border-top: 1px solid var(--ntk-sidebar-border);
   margin-top: auto;
 }
 </style>

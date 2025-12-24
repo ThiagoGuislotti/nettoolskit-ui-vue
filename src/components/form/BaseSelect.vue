@@ -137,81 +137,81 @@ const deselectAll = () => {
 
 <style scoped lang="scss">
 .base-select {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--ntk-font-family);
 
   :deep(.q-field__control) {
-    border-radius: 8px;
-    border: 1px solid rgba(0, 0, 0, 0.24);
-    background: #ffffff;
-    transition: all 0.3s ease;
+    border-radius: var(--ntk-radius-md);
+    border: 1px solid var(--ntk-input-border);
+    background: var(--ntk-input-bg);
+    transition: all var(--ntk-transition-base);
 
     &:hover {
-      border-color: rgba(0, 0, 0, 0.87);
+      border-color: var(--ntk-input-border-hover);
     }
   }
 
   :deep(.q-field--outlined.q-field--focused .q-field__control) {
-    border-color: #1976d2;
+    border-color: var(--ntk-input-border-focus);
     box-shadow: none;
   }
 
   :deep(.q-field__label) {
-    color: #757575;
-    font-weight: 500;
+    color: var(--ntk-input-label);
+    font-weight: var(--ntk-font-weight-medium);
   }
 
   :deep(.q-field__native) {
-    color: #424242;
-    font-family: 'Inter', sans-serif;
+    color: var(--ntk-input-text);
+    font-family: var(--ntk-font-family);
   }
 
   :deep(.q-icon) {
-    color: #757575;
+    color: var(--ntk-input-icon);
   }
 
   :deep(.q-chip) {
-    background-color: #1976d2;
-    color: white;
-    border-radius: 8px;
+    background-color: var(--ntk-primary);
+    color: var(--ntk-text-inverse);
+    border-radius: var(--ntk-radius-md);
   }
 }
 </style>
 
 <style lang="scss">
 .q-menu {
-  background: #fafafa !important;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-  border-radius: 8px;
+  background: var(--ntk-menu-bg) !important;
+  box-shadow: var(--ntk-shadow-popup);
+  border-radius: var(--ntk-radius-md);
 
   .q-item {
-    font-family: 'Inter', sans-serif;
-    color: #424242 !important;
-    border-radius: 4px;
+    font-family: var(--ntk-font-family);
+    color: var(--ntk-text-dark) !important;
+    border-radius: var(--ntk-radius-sm);
     margin: 4px 8px;
     transition: all 0.2s ease;
 
     &:hover {
-      background-color: #f5f5f5 !important;
+      background-color: var(--ntk-menu-item-hover) !important;
     }
 
     &.q-item--active,
     &[aria-selected="true"] {
-      background-color: #1976d2 !important;
-      color: #ffffff !important;
+      background-color: var(--ntk-menu-item-active-bg) !important;
+      color: var(--ntk-menu-item-active-text) !important;
       
       .q-item__label {
-        color: #ffffff !important;
+        color: var(--ntk-menu-item-active-text) !important;
       }
     }
   }
 
   .q-item__label {
-    color: #424242 !important;
+    color: var(--ntk-text-dark) !important;
   }
 
   .q-checkbox {
     .q-checkbox__inner {
-      color: #1976d2 !important;
+      color: var(--ntk-primary) !important;
     }
   }
 }

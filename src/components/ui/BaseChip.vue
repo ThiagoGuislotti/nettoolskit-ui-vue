@@ -39,23 +39,23 @@ const handleClick = (event: MouseEvent) => {
 <style scoped lang="scss">
 .base-chip {
   padding: 10px 20px;
-  background: var(--bg-light, #f5f5f5);
-  border: 2px solid transparent;
-  border-radius: 24px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--text-dark, #424242);
+  background: var(--ntk-chip-bg);
+  border: 2px solid var(--ntk-chip-border);
+  border-radius: var(--ntk-radius-2xl);
+  font-size: var(--ntk-font-size-sm);
+  font-weight: var(--ntk-font-weight-medium);
+  color: var(--ntk-chip-text);
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  transition: all var(--ntk-transition-base);
+  font-family: var(--ntk-font-family);
   outline: none;
 
   &:hover:not(.base-chip--disabled) {
-    background: var(--bg-white, #ffffff);
-    border-color: var(--primary-color, #1976d2);
-    color: var(--primary-color, #1976d2);
+    background: var(--ntk-bg-primary);
+    border-color: var(--ntk-primary);
+    color: var(--ntk-primary);
     transform: translateY(-2px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--ntk-shadow-sm);
   }
 
   &:active:not(.base-chip--disabled) {
@@ -63,49 +63,49 @@ const handleClick = (event: MouseEvent) => {
   }
 
   &--primary {
-    background: var(--primary-color, #1976d2);
-    color: white;
-    border-color: var(--primary-color, #1976d2);
+    background: var(--ntk-primary);
+    color: var(--ntk-text-inverse);
+    border-color: var(--ntk-primary);
 
     &:hover:not(.base-chip--disabled) {
-      background: var(--primary-dark, #1565c0);
-      border-color: var(--primary-dark, #1565c0);
-      color: white;
+      background: var(--ntk-primary-dark);
+      border-color: var(--ntk-primary-dark);
+      color: var(--ntk-text-inverse);
     }
   }
 
   &--secondary {
-    background: var(--bg-light, #f5f5f5);
-    color: var(--text-dark, #424242);
-    border-color: var(--border-color, #e0e0e0);
+    background: var(--ntk-chip-bg);
+    color: var(--ntk-chip-text);
+    border-color: var(--ntk-border-color);
 
     &:hover:not(.base-chip--disabled) {
-      background: var(--bg-white, #ffffff);
-      border-color: var(--primary-color, #1976d2);
-      color: var(--primary-color, #1976d2);
+      background: var(--ntk-bg-primary);
+      border-color: var(--ntk-primary);
+      color: var(--ntk-primary);
     }
   }
 
   &--outlined {
     background: transparent;
-    border-color: var(--border-color, #e0e0e0);
-    color: var(--text-dark, #424242);
+    border-color: var(--ntk-border-color);
+    color: var(--ntk-chip-text);
 
     &:hover:not(.base-chip--disabled) {
-      background: var(--bg-light, #f5f5f5);
-      border-color: var(--primary-color, #1976d2);
-      color: var(--primary-color, #1976d2);
+      background: var(--ntk-chip-bg);
+      border-color: var(--ntk-primary);
+      color: var(--ntk-primary);
     }
   }
 
   &--selected {
-    background: var(--primary-color, #1976d2);
-    border-color: var(--primary-color, #1976d2);
-    color: white;
+    background: var(--ntk-chip-bg-selected);
+    border-color: var(--ntk-chip-bg-selected);
+    color: var(--ntk-chip-text-selected);
 
     &:hover:not(.base-chip--disabled) {
-      background: var(--primary-dark, #1565c0);
-      border-color: var(--primary-dark, #1565c0);
+      background: var(--ntk-primary-dark);
+      border-color: var(--ntk-primary-dark);
     }
   }
 

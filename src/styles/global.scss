@@ -21,9 +21,9 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  color: #424242;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  font-family: var(--ntk-font-family);
+  color: var(--ntk-text-dark);
+  background: var(--ntk-gradient-hero);
   min-height: 100vh;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -47,50 +47,50 @@ body {
  * Typography - Landing Page Style
  * ============================================ */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
+  font-weight: var(--ntk-font-weight-bold);
   line-height: 1.2;
   margin-bottom: 1rem;
-  color: #424242;
+  color: var(--ntk-text-dark);
 }
 
 h1 {
-  font-size: 3rem;
-  font-weight: 800;
+  font-size: var(--ntk-font-size-4xl);
+  font-weight: var(--ntk-font-weight-extrabold);
 }
 
 h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: var(--ntk-font-size-3xl);
+  font-weight: var(--ntk-font-weight-bold);
 }
 
 h3 {
-  font-size: 1.75rem;
-  font-weight: 700;
+  font-size: var(--ntk-font-size-2xl);
+  font-weight: var(--ntk-font-weight-bold);
 }
 
 h4 {
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: var(--ntk-font-size-xl);
+  font-weight: var(--ntk-font-weight-bold);
 }
 
 h5, h6 {
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: var(--ntk-font-size-base);
+  font-weight: var(--ntk-font-weight-semibold);
 }
 
 p {
   margin-bottom: 1rem;
-  color: #757575;
+  color: var(--ntk-text-light);
   line-height: 1.6;
 }
 
 a {
-  color: var(--color-text-link);
+  color: var(--ntk-text-link);
   text-decoration: none;
-  transition: all var(--transition-fast);
+  transition: all var(--ntk-transition-fast);
 
   &:hover {
-    color: var(--color-text-link-hover);
+    color: var(--ntk-text-link-hover);
     text-decoration: underline;
   }
 }
@@ -112,40 +112,40 @@ a {
 .btn-secondary {
   padding: 12px 24px;
   border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
+  border-radius: var(--ntk-radius-md);
+  font-size: var(--ntk-font-size-base);
+  font-weight: var(--ntk-font-weight-semibold);
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: 'Inter', sans-serif;
+  transition: all var(--ntk-transition-base);
+  font-family: var(--ntk-font-family);
 }
 
 .btn-primary {
-  background-color: var(--color-action-primary);
-  color: var(--color-text-inverse);
+  background-color: var(--ntk-primary);
+  color: var(--ntk-text-inverse);
 
   &:hover {
-    background-color: var(--color-action-primary-hover);
+    background-color: var(--ntk-primary-dark);
     transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--ntk-shadow-lg);
   }
 }
 
 .btn-secondary {
   background-color: transparent;
-  color: var(--color-action-primary);
-  border: 2px solid var(--color-action-primary);
+  color: var(--ntk-primary);
+  border: 2px solid var(--ntk-primary);
 
   &:hover {
-    background-color: var(--color-action-primary);
-    color: var(--color-text-inverse);
+    background-color: var(--ntk-primary);
+    color: var(--ntk-text-inverse);
     transform: translateY(-2px);
   }
 }
 
 .btn-lg {
   padding: 16px 32px;
-  font-size: 1.1rem;
+  font-size: var(--ntk-font-size-lg);
 }
 
 .btn-block {
@@ -156,14 +156,14 @@ a {
  * Cards - Landing Page Style
  * ============================================ */
 .card {
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
+  background: var(--ntk-card-bg);
+  border-radius: var(--ntk-radius-xl);
+  box-shadow: var(--ntk-shadow-card);
+  transition: all var(--ntk-transition-base);
   
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--ntk-shadow-card-hover);
   }
 }
 
@@ -211,21 +211,21 @@ a {
 }
 
 .text-primary {
-  color: var(--color-action-primary);
+  color: var(--ntk-primary);
 }
 
 .text-muted {
-  color: #757575;
+  color: var(--ntk-text-light);
 }
 
 .shadow-sm {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--ntk-shadow-sm);
 }
 
 .shadow-md {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--ntk-shadow-md);
 }
 
 .shadow-lg {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--ntk-shadow-lg);
 }

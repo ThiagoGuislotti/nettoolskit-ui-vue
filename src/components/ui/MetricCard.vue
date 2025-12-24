@@ -42,16 +42,16 @@ const trendIcon = computed(() => {
 
 <style lang="scss" scoped>
 .metric-card {
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background: var(--ntk-card-bg);
+  border-radius: var(--ntk-radius-xl);
+  box-shadow: var(--ntk-shadow-card);
   padding: 1.5rem;
-  transition: all 0.3s ease;
-  font-family: 'Inter', sans-serif;
+  transition: all var(--ntk-transition-base);
+  font-family: var(--ntk-font-family);
   
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--ntk-shadow-card-hover);
   }
 
   &__content {
@@ -65,41 +65,41 @@ const trendIcon = computed(() => {
   }
 
   &__label {
-    font-size: 0.875rem;
-    color: #757575;
+    font-size: var(--ntk-font-size-sm);
+    color: var(--ntk-text-light);
     margin-bottom: 0.5rem;
-    font-weight: 500;
+    font-weight: var(--ntk-font-weight-medium);
   }
 
   &__value {
     font-size: 2.5rem;
-    color: #424242;
-    font-weight: 800;
+    color: var(--ntk-text-dark);
+    font-weight: var(--ntk-font-weight-extrabold);
     line-height: 1.2;
   }
 
   &__trend {
-    font-size: 0.875rem;
+    font-size: var(--ntk-font-size-sm);
     margin-top: 0.5rem;
     display: flex;
     align-items: center;
     gap: 0.25rem;
 
     &--positive {
-      color: #4caf50;
+      color: var(--ntk-success);
     }
 
     &--negative {
-      color: #f44336;
+      color: var(--ntk-error);
     }
 
     &--neutral {
-      color: #757575;
+      color: var(--ntk-text-light);
     }
   }
 
   &__icon {
-    color: #1976d2;
+    color: var(--ntk-primary);
     opacity: 0.3;
   }
 }

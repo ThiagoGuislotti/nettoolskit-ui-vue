@@ -52,7 +52,6 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
-  iconColor: '#1976d2',
   variant: 'default',
   separator: false
 })
@@ -60,36 +59,36 @@ withDefaults(defineProps<Props>(), {
 
 <style lang="scss" scoped>
 .info-card {
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background: var(--ntk-card-bg);
+  border-radius: var(--ntk-radius-xl);
+  box-shadow: var(--ntk-shadow-card);
   overflow: hidden;
-  transition: all 0.3s ease;
-  font-family: 'Inter', sans-serif;
+  transition: all var(--ntk-transition-base);
+  font-family: var(--ntk-font-family);
   
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--ntk-shadow-card-hover);
   }
 
   &--elevated {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--ntk-shadow-card-hover);
   }
 
   &__header {
     padding: 1.5rem;
 
     &--colored {
-      background: #1976d2;
-      color: white;
+      background: var(--ntk-primary);
+      color: var(--ntk-text-inverse);
 
       .info-card__title,
       .info-card__subtitle {
-        color: white;
+        color: var(--ntk-text-inverse);
       }
 
       .info-card__icon {
-        color: white !important;
+        color: var(--ntk-text-inverse) !important;
       }
     }
   }
@@ -101,33 +100,33 @@ withDefaults(defineProps<Props>(), {
   }
 
   &__icon {
-    color: #1976d2;
+    color: var(--ntk-primary);
   }
 
   &__title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #424242;
+    font-size: var(--ntk-font-size-xl);
+    font-weight: var(--ntk-font-weight-bold);
+    color: var(--ntk-text-dark);
   }
 
   &__subtitle {
-    font-size: 0.875rem;
-    color: #757575;
+    font-size: var(--ntk-font-size-sm);
+    color: var(--ntk-text-light);
     margin-top: 0.25rem;
   }
 
   &__separator {
     height: 1px;
-    background: #f0f0f0;
+    background: var(--ntk-border-light);
   }
 
   &__content {
     padding: 1.5rem;
-    color: #424242;
+    color: var(--ntk-text-dark);
     
     strong {
-      color: #1976d2;
-      font-weight: 600;
+      color: var(--ntk-primary);
+      font-weight: var(--ntk-font-weight-semibold);
     }
   }
 
@@ -136,7 +135,7 @@ withDefaults(defineProps<Props>(), {
     display: flex;
     justify-content: flex-end;
     gap: 0.5rem;
-    border-top: 1px solid #f0f0f0;
+    border-top: 1px solid var(--ntk-border-light);
   }
 }
 </style>

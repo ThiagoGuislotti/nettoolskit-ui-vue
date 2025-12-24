@@ -62,7 +62,7 @@ const iconStyle = computed(() => {
     return { backgroundColor: props.iconColor };
   }
   return {
-    backgroundColor: `${theme.value.colors.primary}15`,
+    backgroundColor: `rgba(var(--ntk-primary-rgb), 0.15)`,
   };
 });
 
@@ -81,14 +81,14 @@ const formattedCredits = computed(() => {
   align-items: center;
   gap: 1rem;
   padding: 1rem 1.25rem;
-  background: var(--theme-background, #ffffff);
-  border: 1px solid var(--theme-border, #e0e0e0);
-  border-radius: 12px;
+  background: var(--ntk-card-bg);
+  border: 1px solid var(--ntk-card-border);
+  border-radius: var(--ntk-radius-lg);
   transition: all 0.2s ease;
   
   &.hoverable:hover {
-    border-color: var(--theme-primary, #1976d2);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-color: var(--ntk-primary);
+    box-shadow: var(--ntk-shadow-md);
   }
 }
 
@@ -98,7 +98,7 @@ const formattedCredits = computed(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 12px;
+  border-radius: var(--ntk-radius-lg);
   font-size: 1.5rem;
   flex-shrink: 0;
 }
@@ -109,9 +109,9 @@ const formattedCredits = computed(() => {
 }
 
 .credit-name {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--theme-text, #424242);
+  font-size: var(--ntk-font-size-sm);
+  font-weight: var(--ntk-font-weight-semibold);
+  color: var(--ntk-text-dark);
   margin: 0 0 0.25rem 0;
   white-space: nowrap;
   overflow: hidden;
@@ -119,8 +119,8 @@ const formattedCredits = computed(() => {
 }
 
 .credit-description {
-  font-size: 0.8rem;
-  color: var(--theme-text-muted, #9e9e9e);
+  font-size: var(--ntk-font-size-xs);
+  color: var(--ntk-text-muted);
   margin: 0;
   white-space: nowrap;
   overflow: hidden;
@@ -135,12 +135,12 @@ const formattedCredits = computed(() => {
   
   .amount {
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: var(--ntk-font-weight-bold);
     line-height: 1;
   }
   
   .label {
-    font-size: 0.7rem;
+    font-size: var(--ntk-font-size-xs);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     opacity: 0.8;
@@ -155,11 +155,11 @@ const formattedCredits = computed(() => {
     width: 36px;
     height: 36px;
     font-size: 1.25rem;
-    border-radius: 8px;
+    border-radius: var(--ntk-radius-md);
   }
   
   .credit-name {
-    font-size: 0.85rem;
+    font-size: var(--ntk-font-size-xs);
   }
   
   .credit-description {
@@ -168,7 +168,7 @@ const formattedCredits = computed(() => {
   
   .credit-amount {
     .amount {
-      font-size: 1.25rem;
+      font-size: var(--ntk-font-size-xl);
     }
     
     .label {

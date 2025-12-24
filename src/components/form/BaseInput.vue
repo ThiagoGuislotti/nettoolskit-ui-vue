@@ -60,36 +60,36 @@ const { internalValue, handleUpdate } = useBaseField(props, emit)
 
 <style scoped lang="scss">
 .base-input {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--ntk-font-family);
 
   :deep(.q-field__control) {
-    border-radius: 8px;
-    border: 1px solid rgba(0, 0, 0, 0.24);
-    background: #ffffff;
-    transition: all 0.3s ease;
+    border-radius: var(--ntk-radius-md);
+    border: 1px solid var(--ntk-input-border);
+    background: var(--ntk-input-bg);
+    transition: all var(--ntk-transition-base);
 
     &:hover {
-      border-color: rgba(0, 0, 0, 0.87);
+      border-color: var(--ntk-input-border-hover);
     }
   }
 
   :deep(.q-field--outlined.q-field--focused .q-field__control) {
-    border-color: #1976d2;
+    border-color: var(--ntk-input-border-focus);
     box-shadow: none;
   }
 
   :deep(.q-field__label) {
-    color: #757575;
-    font-weight: 500;
+    color: var(--ntk-input-label);
+    font-weight: var(--ntk-font-weight-medium);
   }
 
   :deep(.q-field__native) {
-    color: #424242;
-    font-family: 'Inter', sans-serif;
+    color: var(--ntk-input-text);
+    font-family: var(--ntk-font-family);
   }
 
   :deep(.q-icon) {
-    color: #757575;
+    color: var(--ntk-input-icon);
   }
 }
 </style>
