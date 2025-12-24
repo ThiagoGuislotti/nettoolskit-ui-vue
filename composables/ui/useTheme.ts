@@ -1,0 +1,177 @@
+/**
+ * useTheme Composable
+ * Gerencia temas dinamicamente na aplicação
+ * Permite trocar cores, fontes e configurações em tempo real
+ */
+
+import { ref, computed, readonly } from 'vue';
+import type { ThemeConfig, ThemeName } from '../../config/theme.config';
+import { themes, defaultTheme } from '../../config/theme.config';
+
+// Estado global do tema
+const currentTheme = ref<ThemeConfig>(defaultTheme);
+const themeName = ref<ThemeName>('sentinela');
+
+/**
+ * Aplica as variáveis CSS do tema no documento
+ */
+function applyThemeToCSS(theme: ThemeConfig): void {
+  const root = document.documentElement;
+  
+  // Cores principais
+  root.style.setProperty('--theme-primary', theme.colors.primary);
+  root.style.setProperty('--theme-primary-dark', theme.colors.primaryDark);
+  root.style.setProperty('--theme-primary-light', theme.colors.primaryLight);
+  root.style.setProperty('--theme-secondary', theme.colors.secondary);
+  root.style.setProperty('--theme-accent', theme.colors.accent);
+  
+  // Backgrounds
+  root.style.setProperty('--theme-background', theme.colors.background);
+  root.style.setProperty('--theme-background-light', theme.colors.backgroundLight);
+  
+  // Texto
+  root.style.setProperty('--theme-text', theme.colors.text);
+  root.style.setProperty('--theme-text-light', theme.colors.textLight);
+  root.style.setProperty('--theme-text-muted', theme.colors.textMuted);
+  
+  // Bordas
+  root.style.setProperty('--theme-border', theme.colors.border);
+  
+  // Feedback
+  root.style.setProperty('--theme-success', theme.colors.success);
+  root.style.setProperty('--theme-warning', theme.colors.warning);
+  root.style.setProperty('--theme-error', theme.colors.error);
+  root.style.setProperty('--theme-info', theme.colors.info);
+  
+  // Gradientes
+  root.style.setProperty('--theme-gradient-hero', theme.gradients.hero);
+  root.style.setProperty('--theme-gradient-primary', theme.gradients.primary);
+  root.style.setProperty('--theme-gradient-loading', theme.gradients.loading);
+  
+  // Fontes
+  root.style.setProperty('--theme-font-display', theme.fonts.display);
+  root.style.setProperty('--theme-font-body', theme.fonts.body);
+  
+  // Data attribute para CSS selectors
+  root.setAttribute('data-theme', theme.name.toLowerCase());
+}
+
+/**
+ * Composable para gerenciar temas
+ */
+export function useTheme() {
+  /**
+   * Define o tema atual
+   */
+  const setTheme = (name: ThemeName): void => {
+    const theme = themes[name];
+    if (theme) {
+      currentTheme.value = theme;
+      themeName.value = name;
+      applyThemeToCSS(theme);
+      
+      // Salvar preferência no localStorage
+      try {
+        localStorage.setItem('app-theme', name);
+      } catch (e) {
+        console.warn('Não foi possível salvar preferência de tema');
+      }
+    }
+  };
+
+  /**
+   * Define um tema customizado
+   */
+  const setCustomTheme = (theme: ThemeConfig): void => {
+    currentTheme.value = theme;
+    applyThemeToCSS(theme);
+  };
+
+  /**
+   * Carrega tema salvo ou usa o padrão
+   */
+  const loadSavedTheme = (): void => {
+    try {
+      const saved = localStorage.getItem('app-theme') as ThemeName | null;
+      if (saved && themes[saved]) {
+        setTheme(saved);
+      } else {
+        applyThemeToCSS(currentTheme.value);
+      }
+    } catch (e) {
+      applyThemeToCSS(currentTheme.value);
+    }
+  };
+
+  /**
+   * Retorna a cor primária atual
+   */
+  const primaryColor = computed(() => currentTheme.value.colors.primary);
+
+  /**
+   * Retorna as configurações do logo
+   */
+  const logo = computed(() => currentTheme.value.logo);
+
+  /**
+   * Retorna o nome do tema atual
+   */
+  const name = computed(() => currentTheme.value.name);
+
+  /**
+   * Verifica se é um tema escuro
+   */
+  const isDark = computed(() => {
+    const bg = currentTheme.value.colors.background;
+    // Verifica se o background é escuro (hex < 50%)
+    const hex = bg.replace('#', '');
+    const r = parseInt(hex.substr(0, 2), 16);
+    const g = parseInt(hex.substr(2, 2), 16);
+    const b = parseInt(hex.substr(4, 2), 16);
+    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+    return brightness < 128;
+  });
+
+  /**
+   * Lista de temas disponíveis
+   */
+  const availableThemes = computed(() => Object.keys(themes) as ThemeName[]);
+
+  return {
+    // Estado (readonly para evitar mutações diretas)
+    theme: readonly(currentTheme),
+    themeName: readonly(themeName),
+    
+    // Computed
+    primaryColor,
+    logo,
+    name,
+    isDark,
+    availableThemes,
+    
+    // Métodos
+    setTheme,
+    setCustomTheme,
+    loadSavedTheme,
+  };
+}
+
+/**
+ * Inicializa o tema no carregamento da aplicação
+ * Chamar no main.ts ou App.vue
+ */
+export function initTheme(defaultThemeName: ThemeName = 'sentinela'): void {
+  const { setTheme, loadSavedTheme } = useTheme();
+  
+  // Tenta carregar tema salvo, senão usa o padrão
+  try {
+    const saved = localStorage.getItem('app-theme') as ThemeName | null;
+    if (saved && themes[saved]) {
+      setTheme(saved);
+    } else {
+      setTheme(defaultThemeName);
+    }
+  } catch (e) {
+    setTheme(defaultThemeName);
+  }
+}
