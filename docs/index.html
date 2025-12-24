@@ -157,12 +157,12 @@
     
     .btn-primary {
       background: var(--ntk-purple);
-      color: var(--white);
+      color: var(--white) !important;
     }
     
     .btn-primary:hover {
       background: var(--ntk-purple-dark);
-      color: var(--white);
+      color: var(--white) !important;
       transform: translateY(-1px);
       box-shadow: var(--shadow-medium);
     }
@@ -368,10 +368,13 @@
       color: var(--white);
     }
     
-    .showcase .section-header h2 {
-      color: var(--white);
-    }
-    
+    .btn-primary,
+    .btn-primary svg,
+    .btn-primary:hover,
+    .btn-primary:hover svg {
+      color: var(--white) !important;
+      fill: var(--white) !important;
+    }    
     .showcase .section-header p {
       color: var(--gray-300);
     }
