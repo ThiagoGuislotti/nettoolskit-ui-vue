@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="assets/brand/nuget-icon.png">
+  <link rel="icon" type="image/png" href="assets/nuget-icon.png">
   
   <style>
     :root {
@@ -635,16 +635,16 @@
       position: relative;
     }
     
-    .theme-preview.sentinela {
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    }
-    
-    .theme-preview.platea {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    }
-    
-    .theme-preview.dark {
+    .theme-preview.dark-theme {
       background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+    }
+    
+    .theme-preview.purple-theme {
+      background: linear-gradient(135deg, #512BD4 0%, #7A5AF8 100%);
+    }
+    
+    .theme-preview.monochrome-theme {
+      background: linear-gradient(135deg, #374151 0%, #6B7280 100%);
     }
     
     .theme-preview img {
@@ -852,6 +852,50 @@
     
     body.dark-mode .install-step code {
       background: #0d1117;
+    }
+    
+    /* Light mode - ensure text visibility on dark backgrounds */
+    .dark-section h2,
+    .dark-section h3,
+    .dark-section p,
+    .dark-section code {
+      color: var(--white);
+    }
+    
+    .dark-section .section-header h2 {
+      color: var(--white);
+    }
+    
+    .dark-section .section-header p {
+      color: var(--gray-300);
+    }
+    
+    .dark-section .component-item code {
+      color: var(--ntk-purple-light);
+    }
+    
+    .dark-section .component-item p {
+      color: var(--gray-400);
+    }
+    
+    /* Footer always has white text (dark background) */
+    .footer,
+    .footer h4,
+    .footer p,
+    .footer a {
+      color: var(--gray-300);
+    }
+    
+    .footer h4 {
+      color: var(--white) !important;
+    }
+    
+    .footer .footer-logo {
+      color: var(--white);
+    }
+    
+    .footer-column a:hover {
+      color: var(--white);
     }
     
     /* Footer */
@@ -1143,7 +1187,7 @@
             </svg>
           </div>
           <h3>Theme System</h3>
-          <p>Runtime theme switching with CSS variables. Includes Sentinela, PlaTEA, and Dark themes out of the box.</p>
+          <p>Runtime theme switching with CSS variables. Includes Dark, Purple, and Monochrome themes out of the box.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">
@@ -1413,7 +1457,7 @@
 <span class="keyword">const</span> { currentTheme, setTheme } = <span class="component">useTheme</span>()
 <span class="keyword">const</span> { notify } = <span class="component">useNotification</span>()
 
-<span class="component">setTheme</span>(<span class="string">'sentinela'</span>)
+<span class="component">setTheme</span>(<span class="string">'dark'</span>)
 <span class="component">notify</span>(<span class="string">'Theme changed!'</span>, <span class="string">'success'</span>)</pre>
           </div>
         </div>
@@ -1518,35 +1562,32 @@
         <h2>Built-in Themes</h2>
         <p>Three production-ready themes with runtime switching support.</p>
       </div>
-      <div style="margin-bottom: var(--spacing-3xl);">
-        <img src="assets/theme-preview.png" alt="Theme Preview" style="width: 100%; border-radius: 16px; box-shadow: var(--shadow-strong);">
-      </div>
       <div class="theme-grid">
         <div class="theme-card">
-          <div class="theme-preview sentinela">
-            <img src="assets/brand/monochrome-icon.png" alt="Sentinela Theme">
-          </div>
-          <div class="theme-info">
-            <h3>Sentinela</h3>
-            <p>Dark professional theme for monitoring applications</p>
-          </div>
-        </div>
-        <div class="theme-card">
-          <div class="theme-preview platea">
-            <img src="assets/brand/nuget-icon.png" alt="PlaTEA Theme">
-          </div>
-          <div class="theme-info">
-            <h3>PlaTEA</h3>
-            <p>Accessible purple theme for education apps</p>
-          </div>
-        </div>
-        <div class="theme-card">
-          <div class="theme-preview dark">
-            <img src="assets/brand/positive-icon.png" alt="Dark Theme">
+          <div class="theme-preview dark-theme">
+            <img src="assets/nuget-icon.png" alt="Dark Theme" style="width: 64px; height: 64px;">
           </div>
           <div class="theme-info">
             <h3>Dark</h3>
-            <p>Modern dark theme for developer tools</p>
+            <p>Modern dark theme with deep backgrounds and vibrant accents</p>
+          </div>
+        </div>
+        <div class="theme-card">
+          <div class="theme-preview purple-theme">
+            <img src="assets/positive-icon.png" alt="Purple Theme" style="width: 64px; height: 64px;">
+          </div>
+          <div class="theme-info">
+            <h3>Purple</h3>
+            <p>Vibrant purple theme with accessible contrast ratios</p>
+          </div>
+        </div>
+        <div class="theme-card">
+          <div class="theme-preview monochrome-theme">
+            <img src="assets/monochrome-icon.png" alt="Monochrome Theme" style="width: 64px; height: 64px;">
+          </div>
+          <div class="theme-info">
+            <h3>Monochrome</h3>
+            <p>Clean grayscale theme for minimal interfaces</p>
           </div>
         </div>
       </div>
