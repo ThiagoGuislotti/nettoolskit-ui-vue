@@ -353,20 +353,29 @@
       font-size: 1.25rem;
       font-weight: 700;
       margin-bottom: var(--spacing-sm);
-      color: var(--gray-900);
+      color: #111827; /* gray-900 hardcoded for visibility */
     }
     
     .feature-card p {
       font-size: 0.9375rem;
-      color: var(--gray-500);
+      color: #4b5563; /* gray-600 hardcoded for visibility */
       line-height: 1.6;
     }
     
-    /* Components Showcase */
+    /* Components Showcase - ALWAYS dark background with white text */
     .showcase {
       padding: var(--spacing-3xl) 0;
-      background: var(--gray-900);
-      color: var(--white);
+      background: #111827 !important; /* gray-900 hardcoded */
+      color: #ffffff !important;
+    }
+    
+    .showcase h2,
+    .showcase .section-header h2 {
+      color: #ffffff !important;
+    }
+    
+    .showcase .section-header p {
+      color: #d1d5db !important; /* gray-300 hardcoded */
     }
     
     .btn-primary,
@@ -375,9 +384,6 @@
     .btn-primary:hover svg {
       color: var(--white) !important;
       fill: var(--white) !important;
-    }    
-    .showcase .section-header p {
-      color: var(--gray-300);
     }
     
     .component-tabs {
@@ -413,26 +419,26 @@
     
     .component-item {
       padding: var(--spacing-lg);
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
       border-radius: 12px;
       text-align: center;
       transition: all var(--transition-fast);
     }
     
     .component-item:hover {
-      background: rgba(81, 43, 212, 0.2);
+      background: #f3f4f6;
       border-color: var(--ntk-purple);
     }
     
     .component-item code {
       font-size: 0.875rem;
-      color: var(--ntk-purple-light);
+      color: #512BD4; /* NTK Purple */
     }
     
     .component-item p {
       font-size: 0.75rem;
-      color: var(--gray-400);
+      color: #4b5563; /* gray-600 */
       margin-top: var(--spacing-xs);
     }
     
@@ -557,11 +563,19 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: var(--spacing-3xl);
-      align-items: center;
+      align-items: start;
+    }
+    
+    .composables-visual-image {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 120px; /* Align with cards, not title */
     }
     
     .composables-visual-image img {
       width: 100%;
+      max-width: 500px;
       border-radius: 16px;
       box-shadow: var(--shadow-strong);
     }
@@ -586,10 +600,22 @@
     }
     
     .composable-item {
-      padding: var(--spacing-md);
+      padding: var(--spacing-sm) var(--spacing-md);
       background: var(--white);
       border-radius: 8px;
       border: 1px solid var(--gray-200);
+      text-align: left;
+    }
+    
+    .composable-item .composable-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: var(--spacing-xs);
+    }
+    
+    .composable-icon {
+      font-size: 1.25rem;
     }
     
     .composable-item code {
@@ -600,13 +626,24 @@
     .composable-item p {
       font-size: 0.75rem;
       color: var(--gray-500);
-      margin-top: var(--spacing-xs);
+      margin: 0;
     }
     
     /* Theme Section */
     .themes {
       padding: var(--spacing-3xl) 0;
       background: var(--white);
+    }
+    
+    .theme-preview-image {
+      text-align: center;
+      margin-bottom: var(--spacing-xl);
+    }
+    
+    .theme-preview-image img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: var(--shadow-strong);
     }
     
     .theme-grid {
@@ -682,180 +719,150 @@
       background: var(--gray-50);
     }
     
-    .dashboard-container {
-      background: var(--white);
-      border-radius: 16px;
-      box-shadow: var(--shadow-strong);
-      overflow: hidden;
-      border: 1px solid var(--gray-200);
-    }
-    
-    .dashboard-header {
+    .dashboard-simple {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: var(--spacing-md) var(--spacing-lg);
-      background: var(--gray-900);
-      border-bottom: 1px solid var(--gray-700);
+      flex-direction: column;
+      gap: var(--spacing-xl);
     }
     
-    .dashboard-logo {
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-sm);
-      color: var(--white);
-      font-weight: 700;
-    }
-    
-    .dashboard-logo img {
-      width: 24px;
-      height: 24px;
-    }
-    
-    .dashboard-body {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      min-height: 400px;
-    }
-    
-    .dashboard-sidebar {
-      background: var(--gray-50);
-      border-right: 1px solid var(--gray-200);
-      padding: var(--spacing-lg);
-    }
-    
-    .sidebar-menu {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    
-    .sidebar-menu li {
-      padding: var(--spacing-sm) var(--spacing-md);
-      border-radius: 8px;
-      margin-bottom: var(--spacing-xs);
-      font-size: 0.875rem;
-      color: var(--gray-600);
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    
-    .sidebar-menu li:hover {
-      background: var(--gray-100);
-    }
-    
-    .sidebar-menu li.active {
-      background: var(--ntk-purple);
-      color: var(--white);
-    }
-    
-    .dashboard-content {
-      padding: var(--spacing-lg);
-    }
-    
-    .metrics-grid {
+    .metrics-grid-simple {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: var(--spacing-md);
-      margin-bottom: var(--spacing-lg);
+      gap: var(--spacing-lg);
     }
     
-    .metric-card-demo {
+    .metric-card-simple {
       background: var(--white);
-      border: 1px solid var(--gray-200);
       border-radius: 12px;
-      padding: var(--spacing-md);
+      padding: var(--spacing-lg);
+      border: 1px solid var(--gray-200);
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-md);
+      box-shadow: var(--shadow-soft);
     }
     
-    .metric-card-demo .metric-label {
-      font-size: 0.75rem;
+    .metric-icon {
+      font-size: 2rem;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--ntk-purple-light);
+      border-radius: 12px;
+    }
+    
+    .metric-info {
+      flex: 1;
+    }
+    
+    .metric-label {
+      font-size: 0.875rem;
       color: var(--gray-500);
       margin-bottom: var(--spacing-xs);
     }
     
-    .metric-card-demo .metric-value {
+    .metric-value {
       font-size: 1.5rem;
       font-weight: 700;
       color: var(--gray-900);
     }
     
-    .metric-card-demo .metric-trend {
-      font-size: 0.75rem;
+    .metric-trend {
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+    
+    .metric-trend.positive {
       color: #10b981;
-      margin-top: var(--spacing-xs);
+      background: rgba(16, 185, 129, 0.1);
     }
     
-    .metric-card-demo .metric-trend.negative {
+    .metric-trend.negative {
       color: #ef4444;
+      background: rgba(239, 68, 68, 0.1);
     }
     
-    .chart-placeholder {
-      background: var(--gray-50);
-      border: 1px solid var(--gray-200);
+    .chart-simple {
+      background: var(--white);
       border-radius: 12px;
-      height: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gray-400);
+      padding: var(--spacing-xl);
+      border: 1px solid var(--gray-200);
+      box-shadow: var(--shadow-soft);
     }
     
-    .chart-bars {
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    .chart-title {
+      font-weight: 700;
+      color: var(--gray-900);
+    }
+    
+    .chart-period {
+      font-size: 0.875rem;
+      color: var(--gray-500);
+    }
+    
+    .chart-bars-simple {
       display: flex;
       align-items: flex-end;
-      gap: 8px;
-      height: 120px;
+      justify-content: space-between;
+      height: 200px;
+      gap: var(--spacing-sm);
     }
     
-    .chart-bar {
-      width: 24px;
-      background: linear-gradient(to top, var(--ntk-purple), var(--ntk-purple-light));
-      border-radius: 4px 4px 0 0;
+    .chart-bar-simple {
+      flex: 1;
+      background: linear-gradient(180deg, var(--ntk-purple), var(--ntk-purple-light));
+      border-radius: 6px 6px 0 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      position: relative;
+      transition: all 0.3s;
     }
     
+    .chart-bar-simple:hover {
+      opacity: 0.8;
+    }
+    
+    .chart-bar-simple span {
+      position: absolute;
+      bottom: -24px;
+      font-size: 0.75rem;
+      color: var(--gray-500);
+    }
+    
+    /* Dark mode for dashboard simple */
     body.dark-mode .dashboard-preview {
       background: var(--gray-800);
     }
     
-    body.dark-mode .dashboard-container {
+    body.dark-mode .metric-card-simple {
       background: var(--gray-900);
       border-color: var(--gray-700);
     }
     
-    body.dark-mode .dashboard-sidebar {
-      background: var(--gray-800);
-      border-color: var(--gray-700);
-    }
-    
-    body.dark-mode .sidebar-menu li {
-      color: var(--gray-400);
-    }
-    
-    body.dark-mode .sidebar-menu li:hover {
-      background: var(--gray-700);
-    }
-    
-    body.dark-mode .dashboard-content {
-      background: var(--gray-900);
-    }
-    
-    body.dark-mode .metric-card-demo {
-      background: var(--gray-800);
-      border-color: var(--gray-700);
-    }
-    
-    body.dark-mode .metric-card-demo .metric-label {
-      color: var(--gray-400);
-    }
-    
-    body.dark-mode .metric-card-demo .metric-value {
+    body.dark-mode .metric-value {
       color: var(--white);
     }
     
-    body.dark-mode .chart-placeholder {
-      background: var(--gray-800);
+    body.dark-mode .chart-simple {
+      background: var(--gray-900);
       border-color: var(--gray-700);
-      color: var(--gray-500);
+    }
+    
+    body.dark-mode .chart-title {
+      color: var(--white);
     }
 
     /* Installation */
@@ -1014,39 +1021,40 @@
     
     /* Feature cards - same style in both themes - FORCE colors */
     body.dark-mode .feature-card {
-      background: var(--white) !important;
-      border-color: var(--gray-200) !important;
+      background: #ffffff !important;
+      border-color: #e5e7eb !important;
     }
     
     body.dark-mode .feature-card h3 {
-      color: var(--gray-900) !important;
+      color: #111827 !important;
     }
     
     body.dark-mode .feature-card p {
-      color: #4b5563 !important; /* gray-600 hardcoded */
+      color: #4b5563 !important;
     }
     
     body.dark-mode .code-content {
       background: #0d1117;
     }
     
+    /* Theme cards - keep white bottom in both themes */
     body.dark-mode .theme-card {
-      background: rgba(30, 30, 40, 0.95);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: var(--white);
+      border: 1px solid var(--gray-200);
     }
     
     body.dark-mode .theme-info {
-      background: rgba(30, 30, 40, 0.95);
+      background: var(--white);
     }
     
     body.dark-mode .theme-card h3,
     body.dark-mode .theme-info h3 {
-      color: var(--white) !important;
+      color: var(--gray-900) !important;
     }
     
     body.dark-mode .theme-card p,
     body.dark-mode .theme-info p {
-      color: var(--gray-300) !important;
+      color: #4b5563 !important;
     }
     
     /* Dark mode: form-visual-section */
@@ -1093,18 +1101,18 @@
       color: #4b5563 !important; /* gray-600 hardcoded */
     }
     
-    /* Component items - showcase section is always dark, force styles */
+    /* Component items - white cards with dark text in both themes */
     .showcase .component-item {
-      background: rgba(30, 30, 50, 0.9) !important;
-      border: 1px solid rgba(255, 255, 255, 0.15) !important;
+      background: #ffffff !important;
+      border: 1px solid #e5e7eb !important;
     }
     
     .showcase .component-item code {
-      color: var(--ntk-purple-light) !important;
+      color: #512BD4 !important;
     }
     
     .showcase .component-item p {
-      color: var(--gray-300) !important;
+      color: #4b5563 !important;
     }
     
     /* Light mode - ensure text visibility on dark backgrounds */
@@ -1776,27 +1784,45 @@
           <p>Reusable Vue 3 composition functions that encapsulate common logic and state management.</p>
           <div class="composables-list">
             <div class="composable-item">
-              <code>useTheme</code>
+              <div class="composable-header">
+                <span class="composable-icon">🎨</span>
+                <code>useTheme</code>
+              </div>
               <p>Runtime theme switching</p>
             </div>
             <div class="composable-item">
-              <code>useNotification</code>
+              <div class="composable-header">
+                <span class="composable-icon">🔔</span>
+                <code>useNotification</code>
+              </div>
               <p>Toast notifications</p>
             </div>
             <div class="composable-item">
-              <code>useDialog</code>
+              <div class="composable-header">
+                <span class="composable-icon">💬</span>
+                <code>useDialog</code>
+              </div>
               <p>Confirmation dialogs</p>
             </div>
             <div class="composable-item">
-              <code>useFormRules</code>
+              <div class="composable-header">
+                <span class="composable-icon">✅</span>
+                <code>useFormRules</code>
+              </div>
               <p>Validation rules</p>
             </div>
             <div class="composable-item">
-              <code>useDebounce</code>
+              <div class="composable-header">
+                <span class="composable-icon">⏱️</span>
+                <code>useDebounce</code>
+              </div>
               <p>Debounced values</p>
             </div>
             <div class="composable-item">
-              <code>useAsync</code>
+              <div class="composable-header">
+                <span class="composable-icon">⚡</span>
+                <code>useAsync</code>
+              </div>
               <p>Async state handling</p>
             </div>
           </div>
@@ -1815,63 +1841,59 @@
         <h2>Dashboard Preview</h2>
         <p>See how NetToolsKit components look in a real dashboard application.</p>
       </div>
-      <div class="dashboard-container">
-        <div class="dashboard-header">
-          <div class="dashboard-logo">
-            <img src="assets/nuget-icon.png" alt="NTK">
-            <span>MyApp Dashboard</span>
+      <div class="dashboard-simple">
+        <div class="metrics-grid-simple">
+          <div class="metric-card-simple">
+            <div class="metric-icon">👥</div>
+            <div class="metric-info">
+              <div class="metric-label">Total Users</div>
+              <div class="metric-value">12,847</div>
+            </div>
+            <div class="metric-trend positive">↑ 12.5%</div>
           </div>
-
+          <div class="metric-card-simple">
+            <div class="metric-icon">💰</div>
+            <div class="metric-info">
+              <div class="metric-label">Revenue</div>
+              <div class="metric-value">$48,290</div>
+            </div>
+            <div class="metric-trend positive">↑ 8.2%</div>
+          </div>
+          <div class="metric-card-simple">
+            <div class="metric-icon">📦</div>
+            <div class="metric-info">
+              <div class="metric-label">Orders</div>
+              <div class="metric-value">1,429</div>
+            </div>
+            <div class="metric-trend negative">↓ 3.1%</div>
+          </div>
+          <div class="metric-card-simple">
+            <div class="metric-icon">📈</div>
+            <div class="metric-info">
+              <div class="metric-label">Conversion</div>
+              <div class="metric-value">3.24%</div>
+            </div>
+            <div class="metric-trend positive">↑ 1.8%</div>
+          </div>
         </div>
-        <div class="dashboard-body">
-          <div class="dashboard-sidebar">
-            <ul class="sidebar-menu">
-              <li class="active">📊 Dashboard</li>
-              <li>👥 Users</li>
-              <li>📦 Products</li>
-              <li>📈 Analytics</li>
-              <li>⚙️ Settings</li>
-            </ul>
+        <div class="chart-simple">
+          <div class="chart-header">
+            <span class="chart-title">Monthly Revenue</span>
+            <span class="chart-period">Last 12 months</span>
           </div>
-          <div class="dashboard-content">
-            <div class="metrics-grid">
-              <div class="metric-card-demo">
-                <div class="metric-label">Total Users</div>
-                <div class="metric-value">12,847</div>
-                <div class="metric-trend">↑ 12.5%</div>
-              </div>
-              <div class="metric-card-demo">
-                <div class="metric-label">Revenue</div>
-                <div class="metric-value">$48,290</div>
-                <div class="metric-trend">↑ 8.2%</div>
-              </div>
-              <div class="metric-card-demo">
-                <div class="metric-label">Orders</div>
-                <div class="metric-value">1,429</div>
-                <div class="metric-trend negative">↓ 3.1%</div>
-              </div>
-              <div class="metric-card-demo">
-                <div class="metric-label">Conversion</div>
-                <div class="metric-value">3.24%</div>
-                <div class="metric-trend">↑ 1.8%</div>
-              </div>
-            </div>
-            <div class="chart-placeholder">
-              <div class="chart-bars">
-                <div class="chart-bar" style="height: 60%"></div>
-                <div class="chart-bar" style="height: 80%"></div>
-                <div class="chart-bar" style="height: 45%"></div>
-                <div class="chart-bar" style="height: 90%"></div>
-                <div class="chart-bar" style="height: 70%"></div>
-                <div class="chart-bar" style="height: 85%"></div>
-                <div class="chart-bar" style="height: 55%"></div>
-                <div class="chart-bar" style="height: 75%"></div>
-                <div class="chart-bar" style="height: 65%"></div>
-                <div class="chart-bar" style="height: 95%"></div>
-                <div class="chart-bar" style="height: 50%"></div>
-                <div class="chart-bar" style="height: 88%"></div>
-              </div>
-            </div>
+          <div class="chart-bars-simple">
+            <div class="chart-bar-simple" style="height: 60%"><span>Jan</span></div>
+            <div class="chart-bar-simple" style="height: 80%"><span>Feb</span></div>
+            <div class="chart-bar-simple" style="height: 45%"><span>Mar</span></div>
+            <div class="chart-bar-simple" style="height: 90%"><span>Apr</span></div>
+            <div class="chart-bar-simple" style="height: 70%"><span>May</span></div>
+            <div class="chart-bar-simple" style="height: 85%"><span>Jun</span></div>
+            <div class="chart-bar-simple" style="height: 55%"><span>Jul</span></div>
+            <div class="chart-bar-simple" style="height: 75%"><span>Aug</span></div>
+            <div class="chart-bar-simple" style="height: 65%"><span>Sep</span></div>
+            <div class="chart-bar-simple" style="height: 95%"><span>Oct</span></div>
+            <div class="chart-bar-simple" style="height: 50%"><span>Nov</span></div>
+            <div class="chart-bar-simple" style="height: 88%"><span>Dec</span></div>
           </div>
         </div>
       </div>
@@ -1884,6 +1906,9 @@
       <div class="section-header">
         <h2>Built-in Themes</h2>
         <p>Three production-ready themes with runtime switching support.</p>
+      </div>
+      <div class="theme-preview-image">
+        <img src="assets/theme-preview.png" alt="Theme Preview - Dark, Purple, Monochrome">
       </div>
       <div class="theme-grid">
         <div class="theme-card">
