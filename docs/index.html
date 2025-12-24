@@ -699,9 +699,11 @@
     
     .install-step {
       text-align: center;
-      background: rgba(255, 255, 255, 0.05);
+      background: var(--white);
+      border: 1px solid var(--gray-200);
       border-radius: 12px;
       padding: var(--spacing-xl);
+      box-shadow: var(--shadow-soft);
     }
     
     .step-number {
@@ -722,16 +724,16 @@
       font-size: 1.125rem;
       font-weight: 700;
       margin-bottom: var(--spacing-sm);
-      color: var(--white) !important;
+      color: var(--gray-900) !important;
     }
     
     .install-step code {
       display: block;
       padding: var(--spacing-md);
-      background: rgba(0, 0, 0, 0.3);
+      background: var(--gray-100);
       border-radius: 8px;
       font-size: 0.875rem;
-      color: var(--ntk-purple-light);
+      color: var(--ntk-purple);
       margin-top: var(--spacing-md);
     }
     
@@ -829,17 +831,18 @@
       color: var(--gray-400);
     }
     
+    /* Feature cards - same style in both themes */
     body.dark-mode .feature-card {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: rgba(255, 255, 255, 0.1);
+      background: var(--white);
+      border-color: var(--gray-200);
     }
     
     body.dark-mode .feature-card h3 {
-      color: var(--white);
+      color: var(--gray-900);
     }
     
     body.dark-mode .feature-card p {
-      color: var(--gray-400);
+      color: var(--gray-600);
     }
     
     body.dark-mode .code-content {
@@ -865,17 +868,62 @@
       color: var(--gray-300) !important;
     }
     
-    body.dark-mode .install-step {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: rgba(255, 255, 255, 0.1);
+    /* Dark mode: form-visual-section */
+    body.dark-mode .form-visual-section {
+      background: var(--gray-900);
     }
     
-    body.dark-mode .install-step h3 {
+    body.dark-mode .form-visual-content h2 {
       color: var(--white);
     }
     
-    body.dark-mode .install-step code {
-      background: #0d1117;
+    body.dark-mode .form-visual-content p {
+      color: var(--gray-400);
+    }
+    
+    body.dark-mode .form-feature span {
+      color: var(--gray-300);
+    }
+    
+    /* Dark mode: composables-visual-section */
+    body.dark-mode .composables-visual-section {
+      background: var(--gray-900);
+    }
+    
+    body.dark-mode .composables-visual-content h2 {
+      color: var(--white);
+    }
+    
+    body.dark-mode .composables-visual-content p {
+      color: var(--gray-400);
+    }
+    
+    /* Composable items - same style in both themes */
+    body.dark-mode .composable-item {
+      background: var(--white);
+      border-color: var(--gray-200);
+    }
+    
+    body.dark-mode .composable-item code {
+      color: var(--ntk-purple);
+    }
+    
+    body.dark-mode .composable-item p {
+      color: var(--gray-600);
+    }
+    
+    /* Component items - same style in both themes (light background) */
+    body.dark-mode .component-item {
+      background: rgba(30, 30, 50, 0.9);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+    
+    body.dark-mode .component-item code {
+      color: var(--ntk-purple-light);
+    }
+    
+    body.dark-mode .component-item p {
+      color: var(--gray-300);
     }
     
     /* Light mode - ensure text visibility on dark backgrounds */
