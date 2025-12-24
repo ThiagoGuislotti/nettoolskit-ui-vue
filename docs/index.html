@@ -968,12 +968,14 @@
         <p>22+ production-ready components organized by category.</p>
       </div>
       <div class="component-tabs">
-        <button class="tab-btn active">Form</button>
-        <button class="tab-btn">Layout</button>
-        <button class="tab-btn">UI</button>
-        <button class="tab-btn">Composables</button>
+        <button class="tab-btn active" data-tab="form">Form</button>
+        <button class="tab-btn" data-tab="layout">Layout</button>
+        <button class="tab-btn" data-tab="ui">UI</button>
+        <button class="tab-btn" data-tab="composables">Composables</button>
       </div>
-      <div class="component-grid">
+      
+      <!-- Form Components -->
+      <div class="component-grid" data-category="form">
         <div class="component-item">
           <code>BaseInput</code>
           <p>Text input with validation</p>
@@ -998,13 +1000,125 @@
           <code>BaseTimePicker</code>
           <p>Time selection</p>
         </div>
+      </div>
+      
+      <!-- Layout Components -->
+      <div class="component-grid" data-category="layout" style="display: none;">
+        <div class="component-item">
+          <code>BaseHeader</code>
+          <p>Application header</p>
+        </div>
+        <div class="component-item">
+          <code>BaseSidebar</code>
+          <p>Navigation sidebar</p>
+        </div>
+        <div class="component-item">
+          <code>BaseFooter</code>
+          <p>Application footer</p>
+        </div>
+        <div class="component-item">
+          <code>BaseHero</code>
+          <p>Landing page hero section</p>
+        </div>
+        <div class="component-item">
+          <code>BaseSection</code>
+          <p>Content section wrapper</p>
+        </div>
+      </div>
+      
+      <!-- UI Components -->
+      <div class="component-grid" data-category="ui" style="display: none;">
         <div class="component-item">
           <code>BaseCard</code>
           <p>Content container</p>
         </div>
         <div class="component-item">
+          <code>BaseButton</code>
+          <p>Action button</p>
+        </div>
+        <div class="component-item">
+          <code>BaseChip</code>
+          <p>Tag/label chip</p>
+        </div>
+        <div class="component-item">
+          <code>BaseLogo</code>
+          <p>Brand logo display</p>
+        </div>
+        <div class="component-item">
           <code>MetricCard</code>
           <p>Dashboard metrics</p>
+        </div>
+        <div class="component-item">
+          <code>InfoCard</code>
+          <p>Information display</p>
+        </div>
+        <div class="component-item">
+          <code>BaseFeatureCard</code>
+          <p>Feature showcase</p>
+        </div>
+        <div class="component-item">
+          <code>BasePricingCard</code>
+          <p>Pricing plans</p>
+        </div>
+        <div class="component-item">
+          <code>BaseCreditCard</code>
+          <p>Payment card display</p>
+        </div>
+        <div class="component-item">
+          <code>BaseSteps</code>
+          <p>Step indicator</p>
+        </div>
+        <div class="component-item">
+          <code>SectionHeader</code>
+          <p>Section title</p>
+        </div>
+      </div>
+      
+      <!-- Composables -->
+      <div class="component-grid" data-category="composables" style="display: none;">
+        <div class="component-item">
+          <code>useTheme</code>
+          <p>Theme management</p>
+        </div>
+        <div class="component-item">
+          <code>useNotification</code>
+          <p>Toast notifications</p>
+        </div>
+        <div class="component-item">
+          <code>useDialog</code>
+          <p>Modal state management</p>
+        </div>
+        <div class="component-item">
+          <code>useFormRules</code>
+          <p>Form validation rules</p>
+        </div>
+        <div class="component-item">
+          <code>useResponsive</code>
+          <p>Breakpoint detection</p>
+        </div>
+        <div class="component-item">
+          <code>useDebounce</code>
+          <p>Debounced values</p>
+        </div>
+        <div class="component-item">
+          <code>useAsync</code>
+          <p>Async operation handling</p>
+        </div>
+        <div class="component-item">
+          <code>useFilters</code>
+          <p>Data filtering</p>
+        </div>
+        <div class="component-item">
+          <code>useTableColumns</code>
+          <p>Table column config</p>
+        </div>
+        <div class="component-item">
+          <code>useBaseField</code>
+          <p>Form field base</p>
+        </div>
+        <div class="component-item">
+          <code>useDialogActions</code>
+          <p>Dialog action handlers</p>
         </div>
       </div>
     </div>
@@ -1244,5 +1358,36 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    // Tab functionality for component showcase
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      const componentGrids = document.querySelectorAll('.component-grid');
+      
+      tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const targetTab = this.getAttribute('data-tab');
+          
+          // Remove active class from all buttons
+          tabButtons.forEach(btn => btn.classList.remove('active'));
+          
+          // Add active class to clicked button
+          this.classList.add('active');
+          
+          // Hide all grids
+          componentGrids.forEach(grid => {
+            grid.style.display = 'none';
+          });
+          
+          // Show target grid
+          const targetGrid = document.querySelector(`[data-category="${targetTab}"]`);
+          if (targetGrid) {
+            targetGrid.style.display = 'grid';
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
