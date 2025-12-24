@@ -54,9 +54,9 @@ export interface ThemeConfig {
 export const sentinelaTheme: ThemeConfig = {
   name: 'Sentinela',
   colors: {
-    primary: '#1976d2',
-    primaryDark: '#1565c0',
-    primaryLight: '#42a5f5',
+    primary: '#0D47A1',
+    primaryDark: '#0D47A1',
+    primaryLight: '#7B74D4',
     secondary: '#f5f5f5',
     accent: '#1976d2',
     background: '#ffffff',
@@ -81,7 +81,7 @@ export const sentinelaTheme: ThemeConfig = {
   },
   gradients: {
     hero: 'linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%)',
-    primary: 'linear-gradient(135deg, #1976d2 0%, #1565c0 100%)',
+    primary: 'linear-gradient(135deg, #0D47A1 0%, #7B74D4 100%)',
     loading: 'linear-gradient(90deg, #f5f7fa 0%, #e4e8ec 50%, #f5f7fa 100%)',
   },
 };

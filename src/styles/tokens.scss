@@ -1,0 +1,238 @@
+/**
+ * Design Tokens - CSS Custom Properties
+ * Sistema de variáveis CSS globais para temas
+ * 
+ * USO:
+ * - Projetos que usam nettoolskit-ui-vue podem sobrescrever estas variáveis
+ * - Suporta modo claro/escuro via classe .dark ou [data-theme="dark"]
+ * - Suporta gradientes customizáveis
+ * 
+ * EXEMPLO DE CUSTOMIZAÇÃO:
+ * :root {
+ *   --ntk-primary: #0D47A1;
+ *   --ntk-primary-gradient-start: #0D47A1;
+ *   --ntk-primary-gradient-end: #7B74D4;
+ * }
+ */
+
+:root {
+  /* ============================================
+   * Primary Colors
+   * Cor principal da aplicação
+   * ============================================ */
+  --ntk-primary: #512BD4;
+  --ntk-primary-dark: #3B1F9E;
+  --ntk-primary-light: #7B74D4;
+  
+  /* Gradiente Primário */
+  --ntk-primary-gradient-start: var(--ntk-primary);
+  --ntk-primary-gradient-end: var(--ntk-primary-light);
+  --ntk-primary-gradient: linear-gradient(135deg, var(--ntk-primary-gradient-start) 0%, var(--ntk-primary-gradient-end) 100%);
+  --ntk-primary-gradient-hover: linear-gradient(135deg, var(--ntk-primary-dark) 0%, var(--ntk-primary) 100%);
+  
+  /* ============================================
+   * Secondary Colors
+   * Cor secundária/accent
+   * ============================================ */
+  --ntk-secondary: #64748b;
+  --ntk-secondary-dark: #475569;
+  --ntk-secondary-light: #94a3b8;
+  
+  /* ============================================
+   * Background Colors
+   * Cores de fundo para diferentes superfícies
+   * ============================================ */
+  --ntk-bg-primary: #ffffff;
+  --ntk-bg-secondary: #f8fafc;
+  --ntk-bg-tertiary: #f1f5f9;
+  --ntk-bg-card: #ffffff;
+  --ntk-bg-elevated: #ffffff;
+  --ntk-bg-overlay: rgba(0, 0, 0, 0.5);
+  
+  /* ============================================
+   * Text Colors
+   * Cores de texto para diferentes hierarquias
+   * ============================================ */
+  --ntk-text-primary: #1e293b;
+  --ntk-text-secondary: #64748b;
+  --ntk-text-muted: #94a3b8;
+  --ntk-text-inverse: #ffffff;
+  --ntk-text-on-primary: #ffffff;
+  --ntk-text-link: var(--ntk-primary);
+  --ntk-text-link-hover: var(--ntk-primary-dark);
+  
+  /* ============================================
+   * Border Colors
+   * Cores de borda e divisores
+   * ============================================ */
+  --ntk-border-color: #e2e8f0;
+  --ntk-border-light: #f1f5f9;
+  --ntk-border-dark: #cbd5e1;
+  --ntk-border-focus: var(--ntk-primary);
+  
+  /* ============================================
+   * Feedback Colors
+   * Cores semânticas para estados
+   * ============================================ */
+  --ntk-success: #22c55e;
+  --ntk-success-light: #dcfce7;
+  --ntk-success-dark: #16a34a;
+  
+  --ntk-warning: #f59e0b;
+  --ntk-warning-light: #fef3c7;
+  --ntk-warning-dark: #d97706;
+  
+  --ntk-error: #ef4444;
+  --ntk-error-light: #fee2e2;
+  --ntk-error-dark: #dc2626;
+  
+  --ntk-info: #3b82f6;
+  --ntk-info-light: #dbeafe;
+  --ntk-info-dark: #2563eb;
+  
+  /* ============================================
+   * Gradients
+   * Gradientes pré-definidos
+   * ============================================ */
+  --ntk-gradient-hero: linear-gradient(135deg, var(--ntk-bg-primary) 0%, var(--ntk-bg-secondary) 100%);
+  --ntk-gradient-loading: linear-gradient(90deg, var(--ntk-bg-secondary) 0%, var(--ntk-bg-tertiary) 50%, var(--ntk-bg-secondary) 100%);
+  --ntk-gradient-accent: linear-gradient(135deg, var(--ntk-primary-gradient-start) 0%, var(--ntk-primary-gradient-end) 100%);
+  
+  /* ============================================
+   * Shadows
+   * Sombras para elevação
+   * ============================================ */
+  --ntk-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ntk-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --ntk-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --ntk-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  
+  /* ============================================
+   * Border Radius
+   * Raios de borda padrão
+   * ============================================ */
+  --ntk-radius-sm: 4px;
+  --ntk-radius-md: 8px;
+  --ntk-radius-lg: 12px;
+  --ntk-radius-xl: 16px;
+  --ntk-radius-full: 9999px;
+  
+  /* ============================================
+   * Transitions
+   * Durações de transição
+   * ============================================ */
+  --ntk-transition-fast: 150ms ease-in-out;
+  --ntk-transition-base: 250ms ease-in-out;
+  --ntk-transition-slow: 350ms ease-in-out;
+  
+  /* ============================================
+   * Typography
+   * Fontes e tamanhos
+   * ============================================ */
+  --ntk-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  --ntk-font-family-display: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ntk-font-family-mono: 'Fira Code', 'Consolas', 'Monaco', monospace;
+  
+  /* ============================================
+   * Footer Colors
+   * Cores específicas para rodapé escuro
+   * ============================================ */
+  --ntk-footer-bg: #1a1a2e;
+  --ntk-footer-text: #e0e0e0;
+  --ntk-footer-text-muted: #9e9e9e;
+  --ntk-footer-link: var(--ntk-primary-light);
+  --ntk-footer-link-hover: var(--ntk-primary);
+  --ntk-footer-border: rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================
+ * Dark Mode
+ * Variáveis para modo escuro
+ * Ativado via classe .dark ou [data-theme="dark"]
+ * ============================================ */
+.dark,
+[data-theme="dark"],
+.body--dark {
+  /* Background Colors - Dark */
+  --ntk-bg-primary: #0f172a;
+  --ntk-bg-secondary: #1e293b;
+  --ntk-bg-tertiary: #334155;
+  --ntk-bg-card: #1e293b;
+  --ntk-bg-elevated: #334155;
+  --ntk-bg-overlay: rgba(0, 0, 0, 0.7);
+  
+  /* Text Colors - Dark */
+  --ntk-text-primary: #f1f5f9;
+  --ntk-text-secondary: #cbd5e1;
+  --ntk-text-muted: #94a3b8;
+  --ntk-text-inverse: #0f172a;
+  
+  /* Border Colors - Dark */
+  --ntk-border-color: #334155;
+  --ntk-border-light: #475569;
+  --ntk-border-dark: #1e293b;
+  
+  /* Shadows - Dark (mais sutis) */
+  --ntk-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --ntk-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --ntk-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+  
+  /* Gradients - Dark */
+  --ntk-gradient-hero: linear-gradient(135deg, var(--ntk-bg-primary) 0%, var(--ntk-bg-secondary) 100%);
+  --ntk-gradient-loading: linear-gradient(90deg, var(--ntk-bg-secondary) 0%, var(--ntk-bg-tertiary) 50%, var(--ntk-bg-secondary) 100%);
+  
+  /* Feedback Colors - Dark (mais vibrantes) */
+  --ntk-success-light: rgba(34, 197, 94, 0.2);
+  --ntk-warning-light: rgba(245, 158, 11, 0.2);
+  --ntk-error-light: rgba(239, 68, 68, 0.2);
+  --ntk-info-light: rgba(59, 130, 246, 0.2);
+}
+
+/* ============================================
+ * SCSS Variables (para uso em componentes)
+ * Mapeiam para as CSS Custom Properties
+ * ============================================ */
+
+// Primary
+$ntk-primary: var(--ntk-primary);
+$ntk-primary-dark: var(--ntk-primary-dark);
+$ntk-primary-light: var(--ntk-primary-light);
+$ntk-primary-gradient: var(--ntk-primary-gradient);
+
+// Secondary
+$ntk-secondary: var(--ntk-secondary);
+$ntk-secondary-dark: var(--ntk-secondary-dark);
+$ntk-secondary-light: var(--ntk-secondary-light);
+
+// Backgrounds
+$ntk-bg-primary: var(--ntk-bg-primary);
+$ntk-bg-secondary: var(--ntk-bg-secondary);
+$ntk-bg-tertiary: var(--ntk-bg-tertiary);
+$ntk-bg-card: var(--ntk-bg-card);
+
+// Text
+$ntk-text-primary: var(--ntk-text-primary);
+$ntk-text-secondary: var(--ntk-text-secondary);
+$ntk-text-muted: var(--ntk-text-muted);
+$ntk-text-inverse: var(--ntk-text-inverse);
+$ntk-text-on-primary: var(--ntk-text-on-primary);
+
+// Borders
+$ntk-border-color: var(--ntk-border-color);
+$ntk-border-light: var(--ntk-border-light);
+$ntk-border-radius-md: var(--ntk-radius-md);
+
+// Shadows
+$ntk-shadow-sm: var(--ntk-shadow-sm);
+$ntk-shadow-md: var(--ntk-shadow-md);
+$ntk-shadow-lg: var(--ntk-shadow-lg);
+
+// Transitions
+$ntk-transition-fast: var(--ntk-transition-fast);
+$ntk-transition-base: var(--ntk-transition-base);
+
+// Feedback
+$ntk-success: var(--ntk-success);
+$ntk-warning: var(--ntk-warning);
+$ntk-error: var(--ntk-error);
+$ntk-info: var(--ntk-info);
