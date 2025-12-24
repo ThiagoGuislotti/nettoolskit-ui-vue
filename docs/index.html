@@ -67,6 +67,7 @@
       color: var(--gray-900);
       line-height: 1.6;
       background: var(--white);
+      overflow-x: hidden;
     }
     
     code, pre {
@@ -1340,7 +1341,16 @@
     
     @media (max-width: 768px) {
       .hero h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .hero-visual img {
+        width: 100%;
+        max-width: 100%;
       }
       
       .nav {
@@ -1353,6 +1363,49 @@
       
       .component-grid {
         grid-template-columns: 1fr;
+      }
+      
+      .form-visual-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .form-visual-content h2 {
+        font-size: 1.75rem;
+      }
+      
+      .composables-visual-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .composables-visual-image {
+        padding-top: 0;
+        order: 2;
+      }
+      
+      .composables-visual-content {
+        order: 1;
+      }
+      
+      .composables-visual-content h2 {
+        font-size: 1.75rem;
+      }
+      
+      .composables-list {
+        grid-template-columns: 1fr;
+      }
+      
+      .code-block {
+        overflow-x: auto;
+      }
+      
+      .code-content pre {
+        font-size: 0.75rem;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+      
+      .theme-section h2 {
+        font-size: 1.75rem;
       }
       
       .footer-content {
@@ -1377,6 +1430,50 @@
         flex-direction: column;
         gap: var(--spacing-sm);
         text-align: center;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 var(--spacing-md);
+      }
+      
+      .hero {
+        padding: 120px 0 60px;
+      }
+      
+      .hero h1 {
+        font-size: 1.75rem;
+      }
+      
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+      
+      .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .stats {
+        flex-direction: column;
+        gap: var(--spacing-md);
+      }
+      
+      .section-header h2 {
+        font-size: 1.5rem;
+      }
+      
+      .form-visual-content h2,
+      .composables-visual-content h2,
+      .theme-section h2 {
+        font-size: 1.5rem;
+      }
+      
+      .install-step-content code {
+        font-size: 0.7rem;
+        word-break: break-all;
       }
     }
   </style>
