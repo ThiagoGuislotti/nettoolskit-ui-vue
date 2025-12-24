@@ -676,6 +676,204 @@
       color: var(--gray-500);
     }
     
+    /* Dashboard Preview */
+    .dashboard-preview {
+      padding: var(--spacing-3xl) 0;
+      background: var(--gray-50);
+    }
+    
+    .dashboard-container {
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: var(--shadow-strong);
+      overflow: hidden;
+      border: 1px solid var(--gray-200);
+    }
+    
+    .dashboard-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--spacing-md) var(--spacing-lg);
+      background: var(--gray-900);
+      border-bottom: 1px solid var(--gray-700);
+    }
+    
+    .dashboard-logo {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      color: var(--white);
+      font-weight: 700;
+    }
+    
+    .dashboard-logo img {
+      width: 24px;
+      height: 24px;
+    }
+    
+    .dashboard-nav {
+      display: flex;
+      gap: var(--spacing-lg);
+    }
+    
+    .dashboard-nav a {
+      color: var(--gray-400);
+      font-size: 0.875rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    
+    .dashboard-nav a:hover {
+      color: var(--white);
+    }
+    
+    .dashboard-body {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      min-height: 400px;
+    }
+    
+    .dashboard-sidebar {
+      background: var(--gray-50);
+      border-right: 1px solid var(--gray-200);
+      padding: var(--spacing-lg);
+    }
+    
+    .sidebar-menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .sidebar-menu li {
+      padding: var(--spacing-sm) var(--spacing-md);
+      border-radius: 8px;
+      margin-bottom: var(--spacing-xs);
+      font-size: 0.875rem;
+      color: var(--gray-600);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .sidebar-menu li:hover {
+      background: var(--gray-100);
+    }
+    
+    .sidebar-menu li.active {
+      background: var(--ntk-purple);
+      color: var(--white);
+    }
+    
+    .dashboard-content {
+      padding: var(--spacing-lg);
+    }
+    
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    .metric-card-demo {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+      padding: var(--spacing-md);
+    }
+    
+    .metric-card-demo .metric-label {
+      font-size: 0.75rem;
+      color: var(--gray-500);
+      margin-bottom: var(--spacing-xs);
+    }
+    
+    .metric-card-demo .metric-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gray-900);
+    }
+    
+    .metric-card-demo .metric-trend {
+      font-size: 0.75rem;
+      color: #10b981;
+      margin-top: var(--spacing-xs);
+    }
+    
+    .metric-card-demo .metric-trend.negative {
+      color: #ef4444;
+    }
+    
+    .chart-placeholder {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-400);
+    }
+    
+    .chart-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      height: 120px;
+    }
+    
+    .chart-bar {
+      width: 24px;
+      background: linear-gradient(to top, var(--ntk-purple), var(--ntk-purple-light));
+      border-radius: 4px 4px 0 0;
+    }
+    
+    body.dark-mode .dashboard-preview {
+      background: var(--gray-800);
+    }
+    
+    body.dark-mode .dashboard-container {
+      background: var(--gray-900);
+      border-color: var(--gray-700);
+    }
+    
+    body.dark-mode .dashboard-sidebar {
+      background: var(--gray-800);
+      border-color: var(--gray-700);
+    }
+    
+    body.dark-mode .sidebar-menu li {
+      color: var(--gray-400);
+    }
+    
+    body.dark-mode .sidebar-menu li:hover {
+      background: var(--gray-700);
+    }
+    
+    body.dark-mode .dashboard-content {
+      background: var(--gray-900);
+    }
+    
+    body.dark-mode .metric-card-demo {
+      background: var(--gray-800);
+      border-color: var(--gray-700);
+    }
+    
+    body.dark-mode .metric-card-demo .metric-label {
+      color: var(--gray-400);
+    }
+    
+    body.dark-mode .metric-card-demo .metric-value {
+      color: var(--white);
+    }
+    
+    body.dark-mode .chart-placeholder {
+      background: var(--gray-800);
+      border-color: var(--gray-700);
+      color: var(--gray-500);
+    }
+
     /* Installation */
     .installation {
       padding: var(--spacing-3xl) 0;
@@ -831,18 +1029,18 @@
       color: var(--gray-400);
     }
     
-    /* Feature cards - same style in both themes */
+    /* Feature cards - same style in both themes - FORCE colors */
     body.dark-mode .feature-card {
-      background: var(--white);
-      border-color: var(--gray-200);
+      background: var(--white) !important;
+      border-color: var(--gray-200) !important;
     }
     
     body.dark-mode .feature-card h3 {
-      color: var(--gray-900);
+      color: var(--gray-900) !important;
     }
     
     body.dark-mode .feature-card p {
-      color: var(--gray-600);
+      color: #4b5563 !important; /* gray-600 hardcoded */
     }
     
     body.dark-mode .code-content {
@@ -898,18 +1096,18 @@
       color: var(--gray-400);
     }
     
-    /* Composable items - same style in both themes */
+    /* Composable items - same style in both themes - FORCE colors */
     body.dark-mode .composable-item {
-      background: var(--white);
-      border-color: var(--gray-200);
+      background: var(--white) !important;
+      border-color: var(--gray-200) !important;
     }
     
     body.dark-mode .composable-item code {
-      color: var(--ntk-purple);
+      color: var(--ntk-purple) !important;
     }
     
     body.dark-mode .composable-item p {
-      color: var(--gray-600);
+      color: #4b5563 !important; /* gray-600 hardcoded */
     }
     
     /* Component items - same style in both themes (light background) */
@@ -1622,6 +1820,81 @@
         </div>
         <div class="composables-visual-image">
           <img src="assets/composables-visual.png" alt="Composables Architecture">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dashboard Preview -->
+  <section class="dashboard-preview">
+    <div class="container">
+      <div class="section-header">
+        <h2>Dashboard Preview</h2>
+        <p>See how NetToolsKit components look in a real dashboard application.</p>
+      </div>
+      <div class="dashboard-container">
+        <div class="dashboard-header">
+          <div class="dashboard-logo">
+            <img src="assets/nuget-icon.png" alt="NTK">
+            <span>MyApp Dashboard</span>
+          </div>
+          <div class="dashboard-nav">
+            <a href="#">Overview</a>
+            <a href="#">Analytics</a>
+            <a href="#">Reports</a>
+            <a href="#">Settings</a>
+          </div>
+        </div>
+        <div class="dashboard-body">
+          <div class="dashboard-sidebar">
+            <ul class="sidebar-menu">
+              <li class="active">📊 Dashboard</li>
+              <li>👥 Users</li>
+              <li>📦 Products</li>
+              <li>📈 Analytics</li>
+              <li>⚙️ Settings</li>
+            </ul>
+          </div>
+          <div class="dashboard-content">
+            <div class="metrics-grid">
+              <div class="metric-card-demo">
+                <div class="metric-label">Total Users</div>
+                <div class="metric-value">12,847</div>
+                <div class="metric-trend">↑ 12.5%</div>
+              </div>
+              <div class="metric-card-demo">
+                <div class="metric-label">Revenue</div>
+                <div class="metric-value">$48,290</div>
+                <div class="metric-trend">↑ 8.2%</div>
+              </div>
+              <div class="metric-card-demo">
+                <div class="metric-label">Orders</div>
+                <div class="metric-value">1,429</div>
+                <div class="metric-trend negative">↓ 3.1%</div>
+              </div>
+              <div class="metric-card-demo">
+                <div class="metric-label">Conversion</div>
+                <div class="metric-value">3.24%</div>
+                <div class="metric-trend">↑ 1.8%</div>
+              </div>
+            </div>
+            <div class="chart-placeholder">
+              <div class="chart-bars">
+                <div class="chart-bar" style="height: 60%"></div>
+                <div class="chart-bar" style="height: 80%"></div>
+                <div class="chart-bar" style="height: 45%"></div>
+                <div class="chart-bar" style="height: 90%"></div>
+                <div class="chart-bar" style="height: 70%"></div>
+                <div class="chart-bar" style="height: 85%"></div>
+                <div class="chart-bar" style="height: 55%"></div>
+                <div class="chart-bar" style="height: 75%"></div>
+                <div class="chart-bar" style="height: 65%"></div>
+                <div class="chart-bar" style="height: 95%"></div>
+                <div class="chart-bar" style="height: 50%"></div>
+                <div class="chart-bar" style="height: 88%"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
