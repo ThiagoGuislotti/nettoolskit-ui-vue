@@ -654,6 +654,11 @@
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     }
     
+    .theme-card {
+      background: var(--white);
+      border: 1px solid var(--gray-100);
+    }
+    
     .theme-info {
       padding: var(--spacing-lg);
       background: var(--white);
@@ -678,6 +683,14 @@
       color: var(--white);
     }
     
+    .installation .section-header h2 {
+      color: var(--white) !important;
+    }
+    
+    .installation .section-header p {
+      color: var(--gray-300) !important;
+    }
+    
     .install-steps {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -686,12 +699,16 @@
     
     .install-step {
       text-align: center;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: var(--spacing-xl);
     }
     
     .step-number {
       width: 48px;
       height: 48px;
       background: var(--ntk-purple);
+      color: var(--white);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -705,12 +722,13 @@
       font-size: 1.125rem;
       font-weight: 700;
       margin-bottom: var(--spacing-sm);
+      color: var(--white) !important;
     }
     
     .install-step code {
       display: block;
       padding: var(--spacing-md);
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.3);
       border-radius: 8px;
       font-size: 0.875rem;
       color: var(--ntk-purple-light);
@@ -829,16 +847,22 @@
     }
     
     body.dark-mode .theme-card {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: rgba(255, 255, 255, 0.1);
+      background: rgba(30, 30, 40, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
     
-    body.dark-mode .theme-card h3 {
-      color: var(--white);
+    body.dark-mode .theme-info {
+      background: rgba(30, 30, 40, 0.95);
     }
     
-    body.dark-mode .theme-card p {
-      color: var(--gray-400);
+    body.dark-mode .theme-card h3,
+    body.dark-mode .theme-info h3 {
+      color: var(--white) !important;
+    }
+    
+    body.dark-mode .theme-card p,
+    body.dark-mode .theme-info p {
+      color: var(--gray-300) !important;
     }
     
     body.dark-mode .install-step {
