@@ -712,22 +712,6 @@
       height: 24px;
     }
     
-    .dashboard-nav {
-      display: flex;
-      gap: var(--spacing-lg);
-    }
-    
-    .dashboard-nav a {
-      color: var(--gray-400);
-      font-size: 0.875rem;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    
-    .dashboard-nav a:hover {
-      color: var(--white);
-    }
-    
     .dashboard-body {
       display: grid;
       grid-template-columns: 200px 1fr;
@@ -897,11 +881,10 @@
     
     .install-step {
       text-align: center;
-      background: var(--white);
-      border: 1px solid var(--gray-200);
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 12px;
       padding: var(--spacing-xl);
-      box-shadow: var(--shadow-soft);
     }
     
     .step-number {
@@ -922,16 +905,16 @@
       font-size: 1.125rem;
       font-weight: 700;
       margin-bottom: var(--spacing-sm);
-      color: var(--gray-900) !important;
+      color: var(--white) !important;
     }
     
     .install-step code {
       display: block;
       padding: var(--spacing-md);
-      background: var(--gray-100);
+      background: rgba(15, 23, 42, 0.9);
       border-radius: 8px;
       font-size: 0.875rem;
-      color: var(--ntk-purple);
+      color: var(--ntk-purple-light);
       margin-top: var(--spacing-md);
     }
     
@@ -1110,18 +1093,18 @@
       color: #4b5563 !important; /* gray-600 hardcoded */
     }
     
-    /* Component items - same style in both themes (light background) */
-    body.dark-mode .component-item {
-      background: rgba(30, 30, 50, 0.9);
-      border-color: rgba(255, 255, 255, 0.15);
+    /* Component items - showcase section is always dark, force styles */
+    .showcase .component-item {
+      background: rgba(30, 30, 50, 0.9) !important;
+      border: 1px solid rgba(255, 255, 255, 0.15) !important;
     }
     
-    body.dark-mode .component-item code {
-      color: var(--ntk-purple-light);
+    .showcase .component-item code {
+      color: var(--ntk-purple-light) !important;
     }
     
-    body.dark-mode .component-item p {
-      color: var(--gray-300);
+    .showcase .component-item p {
+      color: var(--gray-300) !important;
     }
     
     /* Light mode - ensure text visibility on dark backgrounds */
@@ -1838,12 +1821,7 @@
             <img src="assets/nuget-icon.png" alt="NTK">
             <span>MyApp Dashboard</span>
           </div>
-          <div class="dashboard-nav">
-            <a href="#">Overview</a>
-            <a href="#">Analytics</a>
-            <a href="#">Reports</a>
-            <a href="#">Settings</a>
-          </div>
+
         </div>
         <div class="dashboard-body">
           <div class="dashboard-sidebar">
