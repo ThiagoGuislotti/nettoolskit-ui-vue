@@ -49,7 +49,7 @@ export function validateCPF(cpf: string): boolean {
   if (cleaned.length !== 11) return false
   
     // Reject CPFs with all equal digits
-  if (/^(\d)\1{10}$/.test(digits)) return false
+  if (/^(\d)\1{10}$/.test(cleaned)) return false
   
   // Calculate first check digit
   let sum = 0

@@ -1,0 +1,45 @@
+{
+  "name": "@nettoolskit/ui-vue",
+  "version": "1.0.0",
+  "description": "Shared Vue 3 + Quasar component library with theme system, composables, and design tokens",
+  "main": "index.ts",
+  "types": "index.ts",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui",
+    "lint": "eslint src --ext .ts,.vue",
+    "type-check": "vue-tsc --noEmit"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "quasar",
+    "components",
+    "ui-library",
+    "design-system",
+    "typescript"
+  ],
+  "author": "Thiago Guislotti",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ThiagoGuislotti/nettoolskit-ui-vue.git"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0",
+    "quasar": "^2.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.0",
+    "@vitest/coverage-v8": "^2.0.0",
+    "@vitest/ui": "^2.0.0",
+    "@vue/test-utils": "^2.4.0",
+    "jsdom": "^24.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^2.0.0",
+    "vue": "^3.4.0",
+    "vue-tsc": "^2.0.0"
+  }
+}
