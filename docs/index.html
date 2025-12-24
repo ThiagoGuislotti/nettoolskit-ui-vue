@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NetToolsKit UI Vue - Shared Component Library</title>
+  <meta name="description" content="A comprehensive Vue 3 + Quasar component library with theme system, composables, and design tokens for building consistent enterprise applications.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/brand/nuget-icon.png">
+  
+  <style>
+    :root {
+      /* NTK Brand Colors */
+      --ntk-purple: #512BD4;
+      --ntk-purple-dark: #3B1FA2;
+      --ntk-purple-light: #7A5AF8;
+      --royal-blue: #4169E1;
+      
+      /* Grays */
+      --gray-900: #111827;
+      --gray-700: #374151;
+      --gray-500: #6B7280;
+      --gray-300: #D1D5DB;
+      --gray-100: #F3F4F6;
+      --white: #FFFFFF;
+      
+      /* Semantic */
+      --success: #059669;
+      --warning: #F59E0B;
+      --error: #DC2626;
+      --info: #4169E1;
+      
+      /* Spacing */
+      --spacing-xs: 0.25rem;
+      --spacing-sm: 0.5rem;
+      --spacing-md: 1rem;
+      --spacing-lg: 1.5rem;
+      --spacing-xl: 2rem;
+      --spacing-2xl: 3rem;
+      --spacing-3xl: 4rem;
+      
+      /* Shadows */
+      --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.08);
+      --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.12);
+      --shadow-strong: 0 8px 32px rgba(0, 0, 0, 0.16);
+      
+      /* Transitions */
+      --transition-fast: 150ms ease;
+      --transition-normal: 250ms ease;
+      --transition-slow: 350ms ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--gray-900);
+      line-height: 1.6;
+      background: var(--white);
+    }
+    
+    code, pre {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    
+    a {
+      color: var(--ntk-purple);
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+    
+    a:hover {
+      color: var(--ntk-purple-dark);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--spacing-lg);
+    }
+    
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--gray-100);
+      z-index: 100;
+      padding: var(--spacing-md) 0;
+    }
+    
+    .header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+    }
+    
+    .logo img {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+    }
+    
+    .logo-text {
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--gray-900);
+    }
+    
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xl);
+    }
+    
+    .nav a {
+      color: var(--gray-700);
+      font-weight: 500;
+      font-size: 0.875rem;
+    }
+    
+    .nav a:hover {
+      color: var(--ntk-purple);
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      padding: var(--spacing-sm) var(--spacing-lg);
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      transition: all var(--transition-fast);
+      cursor: pointer;
+      border: none;
+    }
+    
+    .btn-primary {
+      background: var(--ntk-purple);
+      color: var(--white);
+    }
+    
+    .btn-primary:hover {
+      background: var(--ntk-purple-dark);
+      color: var(--white);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-medium);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: var(--gray-700);
+      border: 1px solid var(--gray-300);
+    }
+    
+    .btn-secondary:hover {
+      background: var(--gray-100);
+      color: var(--gray-900);
+    }
+    
+    /* Hero */
+    .hero {
+      padding: 160px 0 100px;
+      background: linear-gradient(135deg, var(--gray-100) 0%, var(--white) 50%, rgba(81, 43, 212, 0.05) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(81, 43, 212, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    
+    .hero .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-3xl);
+      align-items: center;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      padding: var(--spacing-xs) var(--spacing-md);
+      background: rgba(81, 43, 212, 0.1);
+      color: var(--ntk-purple);
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: var(--spacing-lg);
+      color: var(--gray-900);
+    }
+    
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--ntk-purple) 0%, var(--royal-blue) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--gray-500);
+      margin-bottom: var(--spacing-xl);
+      max-width: 500px;
+    }
+    
+    .hero-actions {
+      display: flex;
+      gap: var(--spacing-md);
+    }
+    
+    .hero-visual {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .hero-visual img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: var(--shadow-strong);
+    }
+    
+    /* Stats */
+    .stats {
+      display: flex;
+      gap: var(--spacing-3xl);
+      margin-top: var(--spacing-3xl);
+      padding-top: var(--spacing-xl);
+      border-top: 1px solid var(--gray-200);
+    }
+    
+    .stat {
+      text-align: left;
+    }
+    
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--ntk-purple);
+    }
+    
+    .stat-label {
+      font-size: 0.875rem;
+      color: var(--gray-500);
+      font-weight: 500;
+    }
+    
+    /* Features */
+    .features {
+      padding: var(--spacing-3xl) 0;
+      background: var(--white);
+    }
+    
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto var(--spacing-3xl);
+    }
+    
+    .section-header h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: var(--spacing-md);
+      color: var(--gray-900);
+    }
+    
+    .section-header p {
+      font-size: 1.125rem;
+      color: var(--gray-500);
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-xl);
+    }
+    
+    .feature-card {
+      padding: var(--spacing-xl);
+      background: var(--white);
+      border: 1px solid var(--gray-100);
+      border-radius: 16px;
+      transition: all var(--transition-normal);
+    }
+    
+    .feature-card:hover {
+      border-color: var(--ntk-purple-light);
+      box-shadow: var(--shadow-medium);
+      transform: translateY(-4px);
+    }
+    
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--ntk-purple) 0%, var(--ntk-purple-light) 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    .feature-icon svg {
+      width: 24px;
+      height: 24px;
+      color: var(--white);
+    }
+    
+    .feature-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: var(--spacing-sm);
+      color: var(--gray-900);
+    }
+    
+    .feature-card p {
+      font-size: 0.9375rem;
+      color: var(--gray-500);
+      line-height: 1.6;
+    }
+    
+    /* Components Showcase */
+    .showcase {
+      padding: var(--spacing-3xl) 0;
+      background: var(--gray-900);
+      color: var(--white);
+    }
+    
+    .showcase .section-header h2 {
+      color: var(--white);
+    }
+    
+    .showcase .section-header p {
+      color: var(--gray-300);
+    }
+    
+    .component-tabs {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing-sm);
+      margin-bottom: var(--spacing-xl);
+    }
+    
+    .tab-btn {
+      padding: var(--spacing-sm) var(--spacing-lg);
+      background: transparent;
+      color: var(--gray-300);
+      border: 1px solid var(--gray-700);
+      border-radius: 8px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    
+    .tab-btn:hover,
+    .tab-btn.active {
+      background: var(--ntk-purple);
+      border-color: var(--ntk-purple);
+      color: var(--white);
+    }
+    
+    .component-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--spacing-md);
+    }
+    
+    .component-item {
+      padding: var(--spacing-lg);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      text-align: center;
+      transition: all var(--transition-fast);
+    }
+    
+    .component-item:hover {
+      background: rgba(81, 43, 212, 0.2);
+      border-color: var(--ntk-purple);
+    }
+    
+    .component-item code {
+      font-size: 0.875rem;
+      color: var(--ntk-purple-light);
+    }
+    
+    .component-item p {
+      font-size: 0.75rem;
+      color: var(--gray-400);
+      margin-top: var(--spacing-xs);
+    }
+    
+    /* Code Example */
+    .code-section {
+      padding: var(--spacing-3xl) 0;
+      background: var(--gray-100);
+    }
+    
+    .code-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-xl);
+      align-items: start;
+    }
+    
+    .code-block {
+      background: var(--gray-900);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-strong);
+    }
+    
+    .code-header {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      padding: var(--spacing-md) var(--spacing-lg);
+      background: rgba(0, 0, 0, 0.3);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .code-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    
+    .code-dot.red { background: #FF5F56; }
+    .code-dot.yellow { background: #FFBD2E; }
+    .code-dot.green { background: #27C93F; }
+    
+    .code-content {
+      padding: var(--spacing-lg);
+      overflow-x: auto;
+    }
+    
+    .code-content pre {
+      font-size: 0.875rem;
+      line-height: 1.7;
+      color: var(--gray-300);
+    }
+    
+    .code-content .keyword { color: #C678DD; }
+    .code-content .string { color: #98C379; }
+    .code-content .component { color: #61AFEF; }
+    .code-content .prop { color: #E5C07B; }
+    .code-content .comment { color: #5C6370; }
+    
+    /* Theme Section */
+    .themes {
+      padding: var(--spacing-3xl) 0;
+      background: var(--white);
+    }
+    
+    .theme-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-xl);
+    }
+    
+    .theme-card {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-medium);
+      transition: all var(--transition-normal);
+    }
+    
+    .theme-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-strong);
+    }
+    
+    .theme-preview {
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    
+    .theme-preview.sentinela {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    }
+    
+    .theme-preview.platea {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .theme-preview.dark {
+      background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+    }
+    
+    .theme-preview img {
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+    
+    .theme-info {
+      padding: var(--spacing-lg);
+      background: var(--white);
+    }
+    
+    .theme-info h3 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: var(--spacing-xs);
+      color: var(--gray-900);
+    }
+    
+    .theme-info p {
+      font-size: 0.875rem;
+      color: var(--gray-500);
+    }
+    
+    /* Installation */
+    .installation {
+      padding: var(--spacing-3xl) 0;
+      background: var(--gray-900);
+      color: var(--white);
+    }
+    
+    .install-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-xl);
+    }
+    
+    .install-step {
+      text-align: center;
+    }
+    
+    .step-number {
+      width: 48px;
+      height: 48px;
+      background: var(--ntk-purple);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.25rem;
+      margin: 0 auto var(--spacing-lg);
+    }
+    
+    .install-step h3 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .install-step code {
+      display: block;
+      padding: var(--spacing-md);
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      font-size: 0.875rem;
+      color: var(--ntk-purple-light);
+      margin-top: var(--spacing-md);
+    }
+    
+    /* Footer */
+    .footer {
+      padding: var(--spacing-xl) 0;
+      background: var(--gray-900);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .footer .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      color: var(--white);
+    }
+    
+    .footer-logo img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+    }
+    
+    .footer-links {
+      display: flex;
+      gap: var(--spacing-xl);
+    }
+    
+    .footer-links a {
+      color: var(--gray-400);
+      font-size: 0.875rem;
+    }
+    
+    .footer-links a:hover {
+      color: var(--white);
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      
+      .hero-content {
+        order: 1;
+      }
+      
+      .hero-visual {
+        order: 2;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      
+      .hero p {
+        margin: 0 auto var(--spacing-xl);
+      }
+      
+      .hero-actions {
+        justify-content: center;
+      }
+      
+      .stats {
+        justify-content: center;
+      }
+      
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .component-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .code-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .theme-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      
+      .install-steps {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .nav {
+        display: none;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .component-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer .container {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <img src="assets/brand/nuget-icon.png" alt="NTK">
+        <span class="logo-text">NetToolsKit UI</span>
+      </div>
+      <nav class="nav">
+        <a href="#features">Features</a>
+        <a href="#components">Components</a>
+        <a href="#themes">Themes</a>
+        <a href="#installation">Installation</a>
+        <a href="https://github.com/ThiagoGuislotti/nettoolskit-ui-vue" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          GitHub
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-badge">Vue 3 + Quasar</span>
+        <h1>Build Consistent UIs with <span>NetToolsKit</span></h1>
+        <p>A comprehensive component library with theme system, composables, and design tokens for building enterprise Vue applications.</p>
+        <div class="hero-actions">
+          <a href="#installation" class="btn btn-primary">Get Started</a>
+          <a href="https://github.com/ThiagoGuislotti/nettoolskit-ui-vue" class="btn btn-secondary">View on GitHub</a>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-value">22+</div>
+            <div class="stat-label">Components</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">11</div>
+            <div class="stat-label">Composables</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">3</div>
+            <div class="stat-label">Themes</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="assets/brand/9.1-brand-applications.png" alt="UI Components Preview">
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header">
+        <h2>Why NetToolsKit UI?</h2>
+        <p>Built for developers who need consistent, accessible, and themeable components.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3>Theme System</h3>
+          <p>Runtime theme switching with CSS variables. Includes Sentinela, PlaTEA, and Dark themes out of the box.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <path d="M3 9h18M9 21V9"/>
+            </svg>
+          </div>
+          <h3>Form Components</h3>
+          <p>Complete form toolkit with BaseInput, BaseSelect, BaseMultiSelect, BaseTextarea, and date/time pickers.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+            </svg>
+          </div>
+          <h3>Layout Components</h3>
+          <p>Flexible layouts with BaseHeader, BaseSidebar, BaseHero, BaseSection, and BaseFooter components.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <h3>Composables</h3>
+          <p>Reusable logic with useTheme, useNotification, useDialog, useFormRules, useDebounce, and more.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3>Accessibility</h3>
+          <p>WCAG compliant components with keyboard navigation, ARIA labels, and focus management.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <h3>Design Tokens</h3>
+          <p>Consistent spacing, shadows, and transitions defined as CSS variables and SCSS mixins.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Components Showcase -->
+  <section class="showcase" id="components">
+    <div class="container">
+      <div class="section-header">
+        <h2>Component Library</h2>
+        <p>22+ production-ready components organized by category.</p>
+      </div>
+      <div class="component-tabs">
+        <button class="tab-btn active">Form</button>
+        <button class="tab-btn">Layout</button>
+        <button class="tab-btn">UI</button>
+        <button class="tab-btn">Composables</button>
+      </div>
+      <div class="component-grid">
+        <div class="component-item">
+          <code>BaseInput</code>
+          <p>Text input with validation</p>
+        </div>
+        <div class="component-item">
+          <code>BaseSelect</code>
+          <p>Single select dropdown</p>
+        </div>
+        <div class="component-item">
+          <code>BaseMultiSelect</code>
+          <p>Multi-select with chips</p>
+        </div>
+        <div class="component-item">
+          <code>BaseTextarea</code>
+          <p>Multiline text input</p>
+        </div>
+        <div class="component-item">
+          <code>BaseDatePicker</code>
+          <p>Date selection</p>
+        </div>
+        <div class="component-item">
+          <code>BaseTimePicker</code>
+          <p>Time selection</p>
+        </div>
+        <div class="component-item">
+          <code>BaseCard</code>
+          <p>Content container</p>
+        </div>
+        <div class="component-item">
+          <code>MetricCard</code>
+          <p>Dashboard metrics</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Code Example -->
+  <section class="code-section">
+    <div class="container">
+      <div class="code-container">
+        <div>
+          <div class="section-header" style="text-align: left; margin-bottom: var(--spacing-xl);">
+            <h2>Simple to Use</h2>
+            <p>Import components and composables with a single entry point. Full TypeScript support included.</p>
+          </div>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: var(--spacing-md);">
+            <li style="display: flex; align-items: flex-start; gap: var(--spacing-md);">
+              <span style="color: var(--ntk-purple); font-weight: 700;">✓</span>
+              <span>Single entry point export for all components</span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: var(--spacing-md);">
+              <span style="color: var(--ntk-purple); font-weight: 700;">✓</span>
+              <span>Full TypeScript definitions included</span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: var(--spacing-md);">
+              <span style="color: var(--ntk-purple); font-weight: 700;">✓</span>
+              <span>Quasar-first CSS with design tokens</span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: var(--spacing-md);">
+              <span style="color: var(--ntk-purple); font-weight: 700;">✓</span>
+              <span>Runtime theme switching</span>
+            </li>
+          </ul>
+        </div>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-dot red"></span>
+            <span class="code-dot yellow"></span>
+            <span class="code-dot green"></span>
+          </div>
+          <div class="code-content">
+<pre><span class="comment">// Import components</span>
+<span class="keyword">import</span> { 
+  <span class="component">BaseInput</span>,
+  <span class="component">BaseSelect</span>,
+  <span class="component">MetricCard</span>
+} <span class="keyword">from</span> <span class="string">'@nettoolskit/ui-vue'</span>
+
+<span class="comment">// Import composables</span>
+<span class="keyword">import</span> { 
+  <span class="component">useTheme</span>,
+  <span class="component">useNotification</span>
+} <span class="keyword">from</span> <span class="string">'@nettoolskit/ui-vue'</span>
+
+<span class="comment">// Use in your component</span>
+<span class="keyword">const</span> { currentTheme, setTheme } = <span class="component">useTheme</span>()
+<span class="keyword">const</span> { notify } = <span class="component">useNotification</span>()
+
+<span class="component">setTheme</span>(<span class="string">'sentinela'</span>)
+<span class="component">notify</span>(<span class="string">'Theme changed!'</span>, <span class="string">'success'</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Themes -->
+  <section class="themes" id="themes">
+    <div class="container">
+      <div class="section-header">
+        <h2>Built-in Themes</h2>
+        <p>Three production-ready themes with runtime switching support.</p>
+      </div>
+      <div class="theme-grid">
+        <div class="theme-card">
+          <div class="theme-preview sentinela">
+            <img src="assets/brand/monochrome-icon.png" alt="Sentinela Theme">
+          </div>
+          <div class="theme-info">
+            <h3>Sentinela</h3>
+            <p>Dark professional theme for monitoring applications</p>
+          </div>
+        </div>
+        <div class="theme-card">
+          <div class="theme-preview platea">
+            <img src="assets/brand/nuget-icon.png" alt="PlaTEA Theme">
+          </div>
+          <div class="theme-info">
+            <h3>PlaTEA</h3>
+            <p>Accessible purple theme for education apps</p>
+          </div>
+        </div>
+        <div class="theme-card">
+          <div class="theme-preview dark">
+            <img src="assets/brand/positive-icon.png" alt="Dark Theme">
+          </div>
+          <div class="theme-info">
+            <h3>Dark</h3>
+            <p>Modern dark theme for developer tools</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Installation -->
+  <section class="installation" id="installation">
+    <div class="container">
+      <div class="section-header">
+        <h2>Get Started</h2>
+        <p>Add NetToolsKit UI to your project in minutes.</p>
+      </div>
+      <div class="install-steps">
+        <div class="install-step">
+          <div class="step-number">1</div>
+          <h3>Add as Submodule</h3>
+          <code>git submodule add https://github.com/ThiagoGuislotti/nettoolskit-ui-vue.git src/shared/ui</code>
+        </div>
+        <div class="install-step">
+          <div class="step-number">2</div>
+          <h3>Import Styles</h3>
+          <code>@import '@/shared/ui/styles/design-system.scss';</code>
+        </div>
+        <div class="install-step">
+          <div class="step-number">3</div>
+          <h3>Use Components</h3>
+          <code>import { BaseInput } from '@/shared/ui';</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">
+        <img src="assets/brand/nuget-icon.png" alt="NTK">
+        <span>NetToolsKit UI Vue</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/ThiagoGuislotti/nettoolskit-ui-vue">GitHub</a>
+        <a href="https://github.com/ThiagoGuislotti/nettoolskit-ui-vue/blob/main/README.md">Documentation</a>
+        <a href="https://github.com/ThiagoGuislotti/nettoolskit-ui-vue/blob/main/samples/DemoPage.vue">Demo</a>
+        <a href="https://github.com/ThiagoGuislotti">@ThiagoGuislotti</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
