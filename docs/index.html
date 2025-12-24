@@ -943,6 +943,20 @@
       font-size: 0.875rem;
       color: var(--ntk-purple-light);
       margin-top: var(--spacing-md);
+      word-break: break-all;
+      overflow-wrap: break-word;
+      white-space: pre-wrap;
+    }
+    
+    .install-step-content {
+      overflow: hidden;
+    }
+    
+    .install-step-content code {
+      word-break: break-all;
+      overflow-wrap: break-word;
+      white-space: pre-wrap;
+      font-size: 0.75rem;
     }
     
     /* Theme Toggle */
@@ -1489,6 +1503,19 @@
       .install-step-content code {
         font-size: 0.7rem;
         word-break: break-all;
+      }
+      
+      .install-step {
+        padding: var(--spacing-md);
+      }
+      
+      .install-step code {
+        font-size: 0.65rem;
+        padding: var(--spacing-sm);
+      }
+      
+      .install-step h3 {
+        font-size: 1rem;
       }
     }
   </style>
