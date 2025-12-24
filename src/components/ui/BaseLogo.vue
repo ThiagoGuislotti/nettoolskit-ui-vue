@@ -19,6 +19,17 @@
 import { computed } from 'vue';
 import { useTheme } from '../../composables/ui/useTheme';
 
+/**
+ * BaseLogo - Componente de logo reutilizável
+ * 
+ * Tamanhos padronizados:
+ * - xs: icon 24px, text 14px (para uso em espaços compactos)
+ * - sm: icon 28px, text 16px (para headers secundários)
+ * - md: icon 36px, text 20px (PADRÃO - para headers principais)
+ * - lg: icon 48px, text 28px (para hero sections)
+ * - xl: icon 64px, text 36px (para páginas de destaque)
+ */
+
 interface Props {
   /** Letra do logo (sobrescreve tema) */
   letter?: string;
@@ -30,8 +41,8 @@ interface Props {
   showText?: boolean;
   /** Mostrar tagline abaixo do texto */
   showTagline?: boolean;
-  /** Tamanho do logo */
-  size?: 'sm' | 'md' | 'lg' | 'xl';
+  /** Tamanho do logo: xs, sm, md (padrão), lg, xl */
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   /** Cor do ícone (sobrescreve tema) */
   iconColor?: string;
   /** Cor do texto (sobrescreve tema) */
@@ -40,6 +51,8 @@ interface Props {
   linkTo?: string;
   /** Usar gradiente no ícone */
   gradient?: boolean;
+  /** Font weight do texto: normal, medium, semibold, bold */
+  fontWeight?: 'normal' | 'medium' | 'semibold' | 'bold';
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -47,6 +60,7 @@ const props = withDefaults(defineProps<Props>(), {
   showTagline: false,
   size: 'md',
   gradient: true,
+  fontWeight: 'bold',
 });
 
 const { theme } = useTheme();
@@ -68,8 +82,16 @@ const iconStyle = computed(() => {
   };
 });
 
+const fontWeightMap = {
+  normal: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700,
+};
+
 const textStyle = computed(() => ({
   color: props.textColor || theme.value.colors.primary,
+  fontWeight: fontWeightMap[props.fontWeight],
 }));
 </script>
 
@@ -93,11 +115,11 @@ const textStyle = computed(() => ({
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--ntk-text-inverse);
-  font-weight: var(--ntk-font-weight-bold);
-  border-radius: var(--ntk-radius-md);
+  color: white;
+  font-weight: 700;
+  border-radius: 8px;
   transition: transform 0.2s ease;
-  box-shadow: var(--ntk-shadow-sm);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .logo-content {
@@ -106,23 +128,39 @@ const textStyle = computed(() => ({
 }
 
 .logo-text {
-  font-weight: var(--ntk-font-weight-bold);
   line-height: 1.2;
+  font-family: 'Poppins', 'Inter', sans-serif;
 }
 
 .logo-tagline {
   font-size: 0.65em;
-  color: var(--ntk-text-muted);
-  font-weight: var(--ntk-font-weight-normal);
+  color: #9e9e9e;
+  font-weight: 400;
 }
 
-// Tamanhos
+// Tamanhos padronizados
+.size-xs {
+  gap: 0.375rem;
+  
+  .logo-icon {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+    border-radius: 5px;
+  }
+  .logo-text {
+    font-size: 14px;
+  }
+}
+
 .size-sm {
+  gap: 0.5rem;
+  
   .logo-icon {
     width: 28px;
     height: 28px;
     font-size: 14px;
-    border-radius: var(--ntk-radius-sm);
+    border-radius: 6px;
   }
   .logo-text {
     font-size: 16px;
@@ -130,10 +168,13 @@ const textStyle = computed(() => ({
 }
 
 .size-md {
+  gap: 0.625rem;
+  
   .logo-icon {
     width: 36px;
     height: 36px;
     font-size: 18px;
+    border-radius: 8px;
   }
   .logo-text {
     font-size: 20px;
@@ -141,11 +182,13 @@ const textStyle = computed(() => ({
 }
 
 .size-lg {
+  gap: 0.75rem;
+  
   .logo-icon {
     width: 48px;
     height: 48px;
     font-size: 24px;
-    border-radius: var(--ntk-radius-lg);
+    border-radius: 10px;
   }
   .logo-text {
     font-size: 28px;
@@ -153,11 +196,13 @@ const textStyle = computed(() => ({
 }
 
 .size-xl {
+  gap: 1rem;
+  
   .logo-icon {
     width: 64px;
     height: 64px;
     font-size: 32px;
-    border-radius: var(--ntk-radius-lg);
+    border-radius: 12px;
   }
   .logo-text {
     font-size: 36px;

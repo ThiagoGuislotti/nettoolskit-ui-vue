@@ -47,6 +47,8 @@ export { default as BaseSidebar } from './src/components/layout/BaseSidebar.vue'
 export { default as BaseFooter } from './src/components/layout/BaseFooter.vue'
 export { default as BaseSection } from './src/components/layout/BaseSection.vue'
 export { default as BaseHero } from './src/components/layout/BaseHero.vue'
+export { default as BaseLandingHeader } from './src/components/layout/BaseLandingHeader.vue'
+export { default as BaseMobileDrawer } from './src/components/layout/BaseMobileDrawer.vue'
 
 // ============================================================================
 // COMPONENTS - UI
@@ -115,3 +117,13 @@ export * from './src/utils/async'
 // CONFIG - Theme
 // ============================================================================
 export * from './src/config/theme.config'
+
+// ============================================================================
+// CONFIG - Layout
+// ============================================================================
+export * from './src/config/layout.config'
+
+// ============================================================================
+// CONFIG - Brand
+// ============================================================================
+export * from './src/config/brand.config'
