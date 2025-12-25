@@ -49,6 +49,7 @@ export { default as BaseSection } from './src/components/layout/BaseSection.vue'
 export { default as BaseHero } from './src/components/layout/BaseHero.vue'
 export { default as BaseLandingHeader } from './src/components/layout/BaseLandingHeader.vue'
 export { default as BaseMobileDrawer } from './src/components/layout/BaseMobileDrawer.vue'
+export { default as BaseCTASection } from './src/components/layout/BaseCTASection.vue'
 
 // ============================================================================
 // COMPONENTS - UI
@@ -64,6 +65,8 @@ export { default as BaseLogo } from './src/components/ui/BaseLogo.vue'
 export { default as BaseFeatureCard } from './src/components/ui/BaseFeatureCard.vue'
 export { default as BaseSteps } from './src/components/ui/BaseSteps.vue'
 export { default as BaseCreditCard } from './src/components/ui/BaseCreditCard.vue'
+export { default as BaseStatCard } from './src/components/ui/BaseStatCard.vue'
+export { default as BaseTestimonialCard } from './src/components/ui/BaseTestimonialCard.vue'
 
 // ============================================================================
 // COMPOSABLES - Forms
